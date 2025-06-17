@@ -1,0 +1,11 @@
+model^|^messages^|^statusCode^|^scenario
+gpt-4^|^system:Hello, how are you?^|^200^|^Test1
+gpt-3^|^user:Good morning^|^201^|^Test2
+gpt-2^|^assistant:What can I assist you with?^|^202^|^Test3
+gpt-1^|^system:Please wait^|^203^|^Test4
+gpt-4^|^user:I need help^|^204^|^Test5
+gpt-3^|^assistant:Sure, how can I help?^|^205^|^Test6
+gpt-2^|^system:Processing your request^|^206^|^Test7
+gpt-1^|^user:Thank you^|^207^|^Test8
+gpt-4^|^assistant:You're welcome^|^208^|^Test9
+gpt-3^|^system:Session ended^|^209^|^Test10
