@@ -1,0 +1,11 @@
+model^|^messages^|^statusCode^|^scenario
+gpt-4^|^system:Hello, how are you?^|^200^|^Test1
+gpt-3^|^user:Good morning^|^200^|^Test2
+gpt-2^|^assistant:Hi, I'm fine^|^200^|^Test3
+gpt-1^|^system:What's your name?^|^200^|^Test4
+gpt-4^|^user:My name is John^|^200^|^Test5
+gpt-3^|^assistant:Nice to meet you, John^|^200^|^Test6
+gpt-2^|^system:What can I do for you?^|^200^|^Test7
+gpt-1^|^user:I need help with my homework^|^200^|^Test8
+gpt-4^|^assistant:Sure, I can help you^|^200^|^Test9
+gpt-3^|^system:What's the subject?^|^200^|^Test10

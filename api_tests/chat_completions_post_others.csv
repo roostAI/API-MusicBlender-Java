@@ -1,0 +1,11 @@
+model^|^messages^|^statusCode^|^scenario
+gpt-4^|^system:Hello, how are you?^|^200^|^Test1
+gpt-3^|^user:Good morning!^|^404^|^Test2
+gpt-2^|^assistant:What can I assist you with today?^|^500^|^Test3
+gpt-4^|^system:Your request has been processed.^|^200^|^Test4
+gpt-3^|^user:I need help with my account.^|^404^|^Test5
+gpt-2^|^assistant:Sure, I can help with that.^|^500^|^Test6
+gpt-4^|^system:Your account has been updated.^|^200^|^Test7
+gpt-3^|^user:Thank you for your assistance.^|^404^|^Test8
+gpt-2^|^assistant:You're welcome!^|^500^|^Test9
+gpt-4^|^system:Have a great day!^|^200^|^Test10
