@@ -1,0 +1,11 @@
+display_name^|^statusCode^|^scenario
+user_alpha^|^200^|^login
+user_beta^|^404^|^search
+user_gamma^|^500^|^checkout
+user_delta^|^200^|^browse
+user_epsilon^|^403^|^login
+user_zeta^|^200^|^search
+user_eta^|^404^|^checkout
+user_theta^|^500^|^browse
+user_iota^|^200^|^login
+user_kappa^|^403^|^search
