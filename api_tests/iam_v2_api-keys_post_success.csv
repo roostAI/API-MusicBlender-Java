@@ -1,0 +1,11 @@
+display_name^|^description^|^owner_id^|^resource_id^|^statusCode^|^scenario
+CI kafka access key^|^This API key provides kafka access to cluster x^|^u-a83k9b^|^lkc-c29js0^|^200^|^create
+Service Account Key^|^Access key for service account operations^|^u-b92k8c^|^lkc-d39ks1^|^201^|^update
+Admin Access Key^|^Full access key for admin operations^|^u-c73l0d^|^lkc-e49lt2^|^403^|^delete
+Read-Only Key^|^Key for read-only access to resources^|^u-d84m1e^|^lkc-f59mu3^|^200^|^get
+Write Access Key^|^Key for write access to specific resources^|^u-e95n2f^|^lkc-g69nv4^|^201^|^list
+Monitoring Key^|^Key for monitoring and metrics access^|^u-f06o3g^|^lkc-h79ow5^|^404^|^create
+Backup Key^|^Key used for backup operations^|^u-g17p4h^|^lkc-i89px6^|^200^|^update
+DevOps Key^|^Access key for DevOps team^|^u-h28q5i^|^lkc-j99qy7^|^403^|^delete
+Test Environment Key^|^Key for accessing test environments^|^u-i39r6j^|^lkc-k09rz8^|^200^|^get
+Production Key^|^Key for production environment access^|^u-j40s7k^|^lkc-l19sa9^|^201^|^list

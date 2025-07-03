@@ -1,0 +1,11 @@
+X-Request-Id^|^X-RateLimit-Limit^|^X-RateLimit-Remaining^|^X-RateLimit-Reset^|^id
+req-1a2b3c^|^5000^|^4990^|^60^|^env-001
+req-4d5e6f^|^5000^|^4985^|^55^|^env-002
+req-7g8h9i^|^5000^|^4980^|^50^|^env-003
+req-0j1k2l^|^5000^|^4975^|^45^|^env-004
+req-3m4n5o^|^5000^|^4970^|^40^|^env-005
+req-6p7q8r^|^5000^|^4965^|^35^|^env-006
+req-9s0t1u^|^5000^|^4960^|^30^|^env-007
+req-2v3w4x^|^5000^|^4955^|^25^|^env-008
+req-5y6z7a^|^5000^|^4950^|^20^|^env-009
+req-8b9c0d^|^5000^|^4945^|^15^|^env-010

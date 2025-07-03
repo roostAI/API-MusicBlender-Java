@@ -1,0 +1,11 @@
+cluster_id^|^topic_name^|^statusCode^|^scenario
+1^|^UserAuthentication^|^204^|^LoginSuccess
+2^|^DataRetrieval^|^5XX^|^ServerError
+3^|^PaymentProcessing^|^204^|^PaymentSuccess
+4^|^UserRegistration^|^5XX^|^DatabaseError
+5^|^OrderPlacement^|^204^|^OrderConfirmed
+6^|^ProfileUpdate^|^5XX^|^TimeoutError
+7^|^PasswordReset^|^204^|^ResetSuccess
+8^|^NotificationService^|^5XX^|^ServiceUnavailable
+9^|^DataExport^|^204^|^ExportComplete
+10^|^SubscriptionRenewal^|^5XX^|^BillingError
