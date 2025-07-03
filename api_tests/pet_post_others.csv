@@ -1,0 +1,11 @@
+id^|^name^|^photoUrls^|^category^|^tags^|^status^|^statusCode^|^scenario
+123^|^doggie^|^https://example.com/photo1.jpg^|^1-Dogs^|^101-Tags,102-Info^|^available^|^200^|^active
+456^|^cat@123^|^(none)^|^INVALID_CATEGORY^|^true^|^pending^|^400^|^auction
+789^|^(empty)^|^https://invalid/photo^|^2-Domestic^|^NULL^|^sold^|^500^|^error
+111^|^Rex^|^https://rex.photos.com^|^3-Wildlife^|^201-Wild,202-Tame^|^available^|^(none)^|^(skip)
+222^|^Fluffy%Name^|^incorrect_format_as_string^|^(none)^|^301-Description^|^pending^|^403^|^(skip)
+333^|^Spot^|^(empty)^|^4-SpottyCategory//Dogs^|^(empty)^|^(skip)^|^204^|^(none)
+444^|^(numeric)^|^https://spot.photos^|^INVALID_OBJECT^|^NULL^|^sold^|^INVALID_CODE^|^proceed
+555^|^Buddy//IncorrectName^|^(none)^|^5-Dogs^|^401-Miscellaneous^|^(skip)^|^N/A^|^(none)
+666^|^Max^|^broken_link/photo.jpg^|^(none)^|^501-Traits,502-Details^|^(empty)^|^(empty)^|^halt
+777^|^Charlie^|^https://charliephotos.org/photo.jpg^|^6-Wildlife^|^(empty)^|^available^|^200^|^start

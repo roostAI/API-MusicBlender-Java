@@ -1,0 +1,11 @@
+status^|^statusCode^|^scenario
+active^|^200^|^userLoggedIn
+inactive^|^404^|^resourceNotFound
+active^|^201^|^accountCreated
+inactive^|^500^|^serverError
+active^|^304^|^notModified
+disabled^|^401^|^unauthorizedAccess
+pending^|^202^|^requestAccepted
+active^|^503^|^serviceUnavailable
+inactive^|^403^|^forbiddenAction
+pending^|^412^|^conditionFailed
