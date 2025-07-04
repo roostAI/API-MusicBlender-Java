@@ -1,0 +1,11 @@
+api_key^|^statusCode^|^scenario
+key12345^|^200^|^login_success
+key67890^|^200^|^data_retrieval
+key54321^|^200^|^account_update
+key09876^|^200^|^password_reset
+key11223^|^200^|^profile_view
+key44556^|^200^|^logout
+key77889^|^200^|^session_timeout
+key99001^|^200^|^email_verification
+key22334^|^200^|^two_factor_auth
+key55667^|^200^|^subscription_renewal

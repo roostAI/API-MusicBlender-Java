@@ -1,0 +1,11 @@
+api_key^|^statusCode^|^scenario
+12345abc^|^200^|^login
+xyz789^|^404^|^signup
+null^|^500^|^checkout
+api_key_missing^|^403^|^profile_update
+abc123^|^200^|^purchase
+987zyx^|^null^|^logout
+key123^|^201^|^delete_account
+456def^|^400^|^add_to_cart
+null^|^202^|^view_item
+key_missing^|^null^|^search
