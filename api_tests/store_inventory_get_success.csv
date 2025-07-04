@@ -1,0 +1,11 @@
+api_key^|^statusCode^|^scenario
+API12345^|^200^|^LoginSuccess
+API67890^|^200^|^DataRetrieval
+API54321^|^200^|^UserUpdate
+API09876^|^200^|^PasswordChange
+API11223^|^200^|^ProfileView
+API33445^|^200^|^Logout
+API55667^|^200^|^SessionTimeout
+API77889^|^200^|^AccountCreation
+API99001^|^200^|^DataExport
+API22334^|^200^|^NotificationRead

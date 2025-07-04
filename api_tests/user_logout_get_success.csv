@@ -1,0 +1,11 @@
+api_key^|^statusCode^|^scenario
+a1b2c3d4e5f6^|^200^|^login
+g7h8i9j0k1l2^|^404^|^search
+m3n4o5p6q7r8^|^500^|^checkout
+s9t0u1v2w3x4^|^200^|^register
+y5z6a7b8c9d0^|^403^|^update
+e1f2g3h4i5j6^|^200^|^delete
+k7l8m9n0o1p2^|^401^|^login
+q3r4s5t6u7v8^|^200^|^search
+w9x0y1z2a3b4^|^404^|^checkout
+c5d6e7f8g9h0^|^500^|^register

@@ -1,0 +1,11 @@
+username^|^password^|^X-Expires-After^|^X-Rate-Limit
+user1^|^pass1234^|^2023-11-01T12:00:00Z^|^1000
+user2^|^securePass!^|^2023-11-02T13:00:00Z^|^950
+user3^|^myPassword^|^2023-11-03T14:00:00Z^|^900
+user4^|^12345abc^|^2023-11-04T15:00:00Z^|^850
+user5^|^qwerty!@#^|^2023-11-05T16:00:00Z^|^800
+user6^|^letmein^|^2023-11-06T17:00:00Z^|^750
+user7^|^password1^|^2023-11-07T18:00:00Z^|^700
+user8^|^admin123^|^2023-11-08T19:00:00Z^|^650
+user9^|^welcome^|^2023-11-09T20:00:00Z^|^600
+user10^|^hunter2^|^2023-11-10T21:00:00Z^|^550

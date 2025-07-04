@@ -1,0 +1,11 @@
+id^|^category.id^|^category.name^|^name^|^photoUrls^|^tags.id^|^tags.name^|^status
+1^|^101^|^Mammals^|^doggie^|^http://example.com/photo1.jpg^|^201^|^friendly^|^available
+2^|^102^|^Reptiles^|^iguana^|^http://example.com/photo2.jpg^|^202^|^green^|^pending
+3^|^103^|^Birds^|^parrot^|^http://example.com/photo3.jpg^|^203^|^talkative^|^sold
+4^|^104^|^Fish^|^goldfish^|^http://example.com/photo4.jpg^|^204^|^shiny^|^available
+5^|^105^|^Amphibians^|^frog^|^http://example.com/photo5.jpg^|^205^|^jumping^|^pending
+6^|^106^|^Insects^|^butterfly^|^http://example.com/photo6.jpg^|^206^|^colorful^|^sold
+7^|^107^|^Mammals^|^cat^|^http://example.com/photo7.jpg^|^207^|^playful^|^available
+8^|^108^|^Reptiles^|^snake^|^http://example.com/photo8.jpg^|^208^|^slithery^|^pending
+9^|^109^|^Birds^|^eagle^|^http://example.com/photo9.jpg^|^209^|^majestic^|^sold
+10^|^110^|^Fish^|^shark^|^http://example.com/photo10.jpg^|^210^|^fierce^|^available
