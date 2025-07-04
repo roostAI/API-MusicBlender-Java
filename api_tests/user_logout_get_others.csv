@@ -1,0 +1,11 @@
+api_key^|^statusCode^|^scenario
+12345abcde^|^200^|^login_success
+67890fghij^|^404^|^page_not_found
+abcde12345^|^500^|^server_error
+fghij67890^|^403^|^access_denied
+09876zyxwv^|^200^|^data_retrieval
+zyxwv09876^|^abc^|^invalid_status
+lmnop54321^|^302^|^redirect
+54321lmnop^|^204^|^no_content
+qrstuv98765^|^999^|^unknown_error
+98765qrstuv^|^201^|^created
