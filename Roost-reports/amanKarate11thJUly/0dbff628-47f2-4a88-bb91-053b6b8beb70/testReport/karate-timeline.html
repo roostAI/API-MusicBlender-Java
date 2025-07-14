@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_get[1:20]","start":1752473410261,"end":1752473410267,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_get[1:20] 06:10:10.261-06:10:10.267 Get all countries with valid headers","className":"failed"},{"id":2,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_get[2.1:49]","start":1752473410274,"end":1752473410278,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_get[2.1:49] 06:10:10.274-06:10:10.278 Get all countries with missing headers","className":"failed"},{"id":3,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_get[2.2:50]","start":1752473410284,"end":1752473410288,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_get[2.2:50] 06:10:10.284-06:10:10.288 Get all countries with missing headers","className":"failed"},{"id":4,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[1.1:30]","start":1752473410604,"end":1752473410606,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[1.1:30] 06:10:10.604-06:10:10.606 Delete country by valid ID","className":"failed"},{"id":5,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[1.2:30]","start":1752473410612,"end":1752473410617,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[1.2:30] 06:10:10.612-06:10:10.617 Delete country by valid ID","className":"failed"},{"id":6,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[1.3:30]","start":1752473410622,"end":1752473410625,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[1.3:30] 06:10:10.622-06:10:10.625 Delete country by valid ID","className":"failed"},{"id":7,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[2.1:42]","start":1752473410630,"end":1752473410635,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[2.1:42] 06:10:10.630-06:10:10.635 Delete country by invalid ID","className":"failed"},{"id":8,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[2.2:43]","start":1752473410641,"end":1752473410644,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[2.2:43] 06:10:10.641-06:10:10.644 Delete country by invalid ID","className":"failed"},{"id":9,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[2.3:44]","start":1752473410649,"end":1752473410652,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_delete[2.3:44] 06:10:10.649-06:10:10.652 Delete country by invalid ID","className":"failed"},{"id":10,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_get[1.1:41]","start":1752473410440,"end":1752473410444,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_get[1.1:41] 06:10:10.440-06:10:10.444 Get country by ID","className":"failed"},{"id":11,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_get[1.2:41]","start":1752473410449,"end":1752473410453,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_get[1.2:41] 06:10:10.449-06:10:10.453 Get country by ID","className":"failed"},{"id":12,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_get[2:43]","start":1752473410457,"end":1752473410461,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_get[2:43] 06:10:10.457-06:10:10.461 Get country by ID with invalid ID","className":"failed"},{"id":13,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_put[1.1:52]","start":1752473409996,"end":1752473410016,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_put[1.1:52] 06:10:09.996-06:10:10.016 Update country with valid data","className":"failed"},{"id":14,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_put[2:54]","start":1752473410022,"end":1752473410030,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_id_put[2:54] 06:10:10.022-06:10:10.030 Update country with invalid ID","className":"failed"},{"id":15,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_post[1.1:57]","start":1752473408354,"end":1752473408430,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_post[1.1:57] 06:10:08.354-06:10:08.430 Create a new country with valid data","className":"failed"},{"id":16,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_post[1.2:57]","start":1752473408445,"end":1752473408450,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_post[1.2:57] 06:10:08.445-06:10:08.450 Create a new country with valid data","className":"failed"},{"id":17,"group":1,"content":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_post[2:59]","start":1752473408457,"end":1752473409036,"title":"src\/test\/java\/com\/medeiros\/api_tests\/Country\/country_post[2:59] 06:10:08.457-06:10:09.036 Create a new country with missing required headers","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
