@@ -1,0 +1,11 @@
+^|^topic_name^|^partition_id^|^statusCode^|^scenario
+1^|^user_activity^|^0^|^200^|^success
+2^|^user_activity^|^1^|^404^|^not_found
+3^|^user_activity^|^2^|^500^|^internal_server_error
+4^|^user_activity^|^3^|^401^|^unauthorized
+5^|^user_activity^|^4^|^403^|^forbidden
+6^|^user_activity^|^5^|^400^|^bad_request
+7^|^user_activity^|^6^|^429^|^too_many_requests
+8^|^user_activity^|^7^|^503^|^service_unavailable
+9^|^user_activity^|^8^|^408^|^request_timeout
+10^|^user_activity^|^9^|^418^|^im_a_teapot

@@ -1,0 +1,11 @@
+^|^topic_name^|^partition_id^|^statusCode^|^scenario
+cluster-1^|^topic-1^|^1^|^200^|^success
+cluster-2^|^topic-2^|^2^|^200^|^success
+cluster-3^|^topic-3^|^3^|^500^|^failure
+cluster-4^|^topic-4^|^4^|^200^|^success
+cluster-5^|^topic-5^|^5^|^500^|^failure
+cluster-6^|^topic-6^|^6^|^200^|^success
+cluster-7^|^topic-7^|^7^|^500^|^failure
+cluster-8^|^topic-8^|^8^|^200^|^success
+cluster-9^|^topic-9^|^9^|^500^|^failure
+cluster-10^|^topic-10^|^10^|^200^|^success

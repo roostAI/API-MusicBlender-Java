@@ -1,0 +1,11 @@
+^|^partitions_count^|^replication_factor^|^configs^|^validate_only^|^statusCode^|^scenario
+topic1^|^32^|^3^|^[{'name':'cleanup.policy','value':'compact'},{'name':'compression.type','value':'gzip'}]^|^true^|^200^|^uniform_replication
+topic2^|^64^|^invalid^|^[{'name':'cleanup.policy','value':'delete'}]^|^false^|^400^|^dry_run_create_topic
+topic3^|^16^|^^|^[{'name':'cleanup.policy','value':'compact'},{'name':'compression.type','value':'snappy'}]^|^true^|^201^|^uniform_replication
+topic4^|^invalid^|^3^|^[{'name':'cleanup.policy','value':'compact'}]^|^false^|^500^|^dry_run_create_topic
+topic5^|^8^|^2^|^[{'name':'cleanup.policy','value':'delete'},{'name':'compression.type','value':'lz4'}]^|^true^|^200^|^uniform_replication
+topic6^|^128^|^3^|^[{'name':'cleanup.policy','value':'compact'}]^|^false^|^404^|^dry_run_create_topic
+topic7^|^32^|^4^|^[{'name':'cleanup.policy','value':'delete'},{'name':'compression.type','value':'gzip'}]^|^true^|^201^|^uniform_replication
+topic8^|^64^|^3^|^[{'name':'cleanup.policy','value':'compact'}]^|^false^|^500^|^dry_run_create_topic
+topic9^|^16^|^2^|^[{'name':'cleanup.policy','value':'delete'},{'name':'compression.type','value':'snappy'}]^|^true^|^200^|^uniform_replication
+topic10^|^invalid^|^3^|^[{'name':'cleanup.policy','value':'compact'}]^|^false^|^400^|^dry_run_create_topic

@@ -1,0 +1,11 @@
+^|^statusCode^|^scenario
+abc123^|^200^|^success
+def456^|^404^|^not_found
+ghi789^|^500^|^internal_error
+jkl012^|^201^|^created
+mno345^|^401^|^unauthorized
+pqr678^|^204^|^no_content
+stu901^|^403^|^forbidden
+vwx234^|^503^|^service_unavailable
+yz1234^|^202^|^accepted
+ab5678^|^400^|^bad_request
