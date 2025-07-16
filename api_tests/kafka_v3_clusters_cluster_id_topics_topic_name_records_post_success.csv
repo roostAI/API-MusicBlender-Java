@@ -1,0 +1,11 @@
+^|^topic_name^|^statusCode^|^scenario
+1^|^topic1^|^200^|^scenarioA
+2^|^topic2^|^404^|^scenarioB
+3^|^topic3^|^500^|^scenarioC
+4^|^topic4^|^201^|^scenarioD
+5^|^topic5^|^401^|^scenarioE
+6^|^topic6^|^302^|^scenarioF
+7^|^topic7^|^204^|^scenarioG
+8^|^topic8^|^403^|^scenarioH
+9^|^topic9^|^200^|^scenarioI
+10^|^topic10^|^503^|^scenarioJ

@@ -1,0 +1,11 @@
+^|^status^|^code^|^title^|^detail^|^source^|^error_code^|^message^|^include_authorized_operations
+12345^|^500^|^E123^|^Internal Server Error^|^The server encountered an internal error^|^pointer:/spec^|^500^|^Internal Server Error^|^true
+67890^|^404^|^E456^|^Not Found^|^The requested resource could not be found^|^parameter:resource^|^404^|^Not Found^|^
+23456^|^400^|^E789^|^Bad Request^|^The request was invalid^|^pointer:/spec/title^|^400^|^Bad Request^|^false
+78901^|^503^|^E234^|^Service Unavailable^|^The server is currently unable to handle the request^|^^|^503^|^Service Unavailable^|^true
+34567^|^200^|^E567^|^OK^|^The request was successful^|^^|^200^|^OK^|^false
+89012^|^401^|^E890^|^Unauthorized^|^Authentication is required^|^^|^401^|^Unauthorized^|^
+45678^|^500^|^E123^|^Internal Server Error^|^The server encountered an internal error^|^pointer:/spec^|^500^|^Internal Server Error^|^true
+90123^|^404^|^E456^|^Not Found^|^The requested resource could not be found^|^parameter:resource^|^404^|^Not Found^|^
+56789^|^400^|^E789^|^Bad Request^|^The request was invalid^|^pointer:/spec/title^|^400^|^Bad Request^|^false
+01234^|^503^|^E234^|^Service Unavailable^|^The server is currently unable to handle the request^|^^|^503^|^Service Unavailable^|^true

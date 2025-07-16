@@ -1,0 +1,11 @@
+^|^topic_name^|^statusCode^|^scenario
+1^|^user_login^|^500^|^success
+2^|^user_logout^|^404^|^failure
+3^|^user_signup^|^200^|^success
+4^|^user_profile_update^|^503^|^failure
+5^|^user_password_reset^|^401^|^success
+6^|^user_email_verification^|^502^|^failure
+7^|^user_address_update^|^201^|^success
+8^|^user_payment_method_add^|^504^|^failure
+9^|^user_order_history^|^403^|^success
+10^|^user_review_submit^|^501^|^failure

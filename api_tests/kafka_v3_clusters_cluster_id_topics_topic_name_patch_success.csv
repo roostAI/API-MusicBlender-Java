@@ -1,0 +1,11 @@
+^|^topic_name^|^partitions_count^|^statusCode^|^scenario
+1^|^user_activity^|^5^|^200^|^high_traffic
+2^|^user_login^|^3^|^404^|^low_traffic
+3^|^user_purchase^|^7^|^500^|^medium_traffic
+4^|^user_logout^|^2^|^201^|^high_traffic
+5^|^user_search^|^4^|^401^|^low_traffic
+6^|^user_profile^|^6^|^200^|^medium_traffic
+7^|^user_review^|^8^|^500^|^high_traffic
+8^|^user_notification^|^1^|^404^|^low_traffic
+9^|^user_settings^|^9^|^201^|^medium_traffic
+10^|^user_support^|^10^|^401^|^high_traffic

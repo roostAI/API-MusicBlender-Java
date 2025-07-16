@@ -1,0 +1,11 @@
+^|^partitions_count^|^replication_factor^|^configs^|^validate_only^|^statusCode^|^scenario
+topic1^|^3^|^2^|[{'name': 'cleanup.policy', 'value': 'compact'}, {'name': 'compression.type', 'value': 'lz4'}]^|^false^|^200^|^create
+topic2^|^5^|^3^|[{'name': 'cleanup.policy', 'value': 'delete'}, {'name': 'compression.type', 'value': 'snappy'}]^|^true^|^201^|^validate
+topic3^|^2^|^1^|[{'name': 'cleanup.policy', 'value': 'compact'}, {'name': 'compression.type', 'value': 'gzip'}]^|^false^|^200^|^create
+topic4^|^4^|^2^|[{'name': 'cleanup.policy', 'value': 'delete'}, {'name': 'compression.type', 'value': 'lz4'}]^|^true^|^201^|^validate
+topic5^|^6^|^3^|[{'name': 'cleanup.policy', 'value': 'compact'}, {'name': 'compression.type', 'value': 'snappy'}]^|^false^|^200^|^create
+topic6^|^1^|^1^|[{'name': 'cleanup.policy', 'value': 'delete'}, {'name': 'compression.type', 'value': 'gzip'}]^|^true^|^201^|^validate
+topic7^|^7^|^2^|[{'name': 'cleanup.policy', 'value': 'compact'}, {'name': 'compression.type', 'value': 'lz4'}]^|^false^|^200^|^create
+topic8^|^8^|^3^|[{'name': 'cleanup.policy', 'value': 'delete'}, {'name': 'compression.type', 'value': 'snappy'}]^|^true^|^201^|^validate
+topic9^|^9^|^1^|[{'name': 'cleanup.policy', 'value': 'compact'}, {'name': 'compression.type', 'value': 'gzip'}]^|^false^|^200^|^create
+topic10^|^10^|^2^|[{'name': 'cleanup.policy', 'value': 'delete'}, {'name': 'compression.type', 'value': 'lz4'}]^|^true^|^201^|^validate
