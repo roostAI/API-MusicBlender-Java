@@ -1,0 +1,54 @@
+{
+  "scenarios": [
+    {
+      "type": "functional",
+      "title": "User Login with Valid Credentials",
+      "description": "Verify successful login with valid credentials.",
+      "testId": "TC-001",
+      "testDescription": "A user provides a correct username and password to access their account.",
+      "prerequisites": "User account must exist in the database.",
+      "stepsToPerform": "1. Navigate to login page.\n2. Enter valid username.\n3. Enter valid password.\n4. Click 'Login' button.",
+      "expectedResult": "User is redirected to their dashboard and a success message is shown."
+    },
+    {
+      "type": "functional",
+      "title": "User Login with Invalid Credentials",
+      "description": "Verify login failure with invalid credentials.",
+      "testId": "TC-002",
+      "testDescription": "A user provides an incorrect username or password and attempts to log in.",
+      "prerequisites": "User account must exist in the database.",
+      "stepsToPerform": "1. Navigate to login page.\n2. Enter invalid username or password.\n3. Click 'Login' button.",
+      "expectedResult": "User remains on the login page and an error message is displayed."
+    },
+    {
+      "type": "functional",
+      "title": "Password Reset Request",
+      "description": "Verify the password reset functionality.",
+      "testId": "TC-003",
+      "testDescription": "A user requests a password reset for their account.",
+      "prerequisites": "User account must exist in the database.",
+      "stepsToPerform": "1. Navigate to login page.\n2. Click on 'Forgot Password' link.\n3. Enter registered email address.\n4. Click 'Submit' button.",
+      "expectedResult": "User receives an email with password reset instructions."
+    },
+    {
+      "type": "non-functional",
+      "title": "Login Page Load Time",
+      "description": "Ensure the login page loads within acceptable time limits.",
+      "testId": "TC-004",
+      "testDescription": "Measure the time taken for the login page to load completely.",
+      "prerequisites": "Internet connection must be stable.",
+      "stepsToPerform": "1. Clear browser cache.\n2. Navigate to login page.\n3. Measure the time taken for the page to load.",
+      "expectedResult": "Login page loads within 2 seconds."
+    },
+    {
+      "type": "non-functional",
+      "title": "System Security for Login Attempts",
+      "description": "Verify the system security against brute force attacks.",
+      "testId": "TC-005",
+      "testDescription": "Attempt multiple failed login attempts to check if the system locks the account or triggers a security alert.",
+      "prerequisites": "User account must exist in the database.",
+      "stepsToPerform": "1. Navigate to login page.\n2. Enter valid username with incorrect password multiple times.\n3. Observe system behavior after several failed attempts.",
+      "expectedResult": "Account is temporarily locked or a security alert is triggered after a predefined number of failed attempts."
+    }
+  ]
+}
