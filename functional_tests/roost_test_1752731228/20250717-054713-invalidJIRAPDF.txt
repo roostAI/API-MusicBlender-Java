@@ -1,0 +1,44 @@
+{
+  "scenarios": [
+    {
+      "type": "functional",
+      "title": "User Registration",
+      "description": "Verify successful registration with valid details.",
+      "testId": "TC-001",
+      "testDescription": "A new user provides valid information to create an account.",
+      "prerequisites": "The registration page must be accessible and the user should not already have an account.",
+      "stepsToPerform": "1. Navigate to the registration page.\n2. Enter a valid email address.\n3. Enter a valid password.\n4. Confirm the password.\n5. Click 'Register' button.",
+      "expectedResult": "User receives a confirmation email and is redirected to a welcome page."
+    },
+    {
+      "type": "functional",
+      "title": "Password Reset",
+      "description": "Verify password reset functionality.",
+      "testId": "TC-002",
+      "testDescription": "A user requests a password reset and successfully changes their password.",
+      "prerequisites": "User must have an existing account with a valid email address.",
+      "stepsToPerform": "1. Navigate to the login page.\n2. Click on 'Forgot Password?'.\n3. Enter the registered email address.\n4. Click 'Submit'.\n5. Open the password reset email.\n6. Click on the reset link.\n7. Enter a new password.\n8. Confirm the new password.\n9. Click 'Reset Password'.",
+      "expectedResult": "User's password is updated, and they receive a confirmation message."
+    },
+    {
+      "type": "non-functional",
+      "title": "Load Testing for Registration",
+      "description": "Evaluate system performance under high load during user registration.",
+      "testId": "TC-003",
+      "testDescription": "Simulate multiple users registering simultaneously to test system stability and response time.",
+      "prerequisites": "Load testing tools should be set up and configured.",
+      "stepsToPerform": "1. Set up a load testing scenario with 1000 concurrent users.\n2. Execute the registration process for each simulated user.\n3. Monitor system performance metrics.",
+      "expectedResult": "System should handle the load without crashing, and response times should remain within acceptable limits."
+    },
+    {
+      "type": "non-functional",
+      "title": "Usability Testing for Registration Page",
+      "description": "Assess the user-friendliness of the registration page.",
+      "testId": "TC-004",
+      "testDescription": "Evaluate the ease of use and clarity of the registration process for new users.",
+      "prerequisites": "The registration page should be fully functional and accessible.",
+      "stepsToPerform": "1. Recruit a group of test users.\n2. Instruct them to register using the registration page.\n3. Collect feedback on the process, including any difficulties encountered.",
+      "expectedResult": "Users should find the registration process intuitive and easy to complete without assistance."
+    }
+  ]
+}
