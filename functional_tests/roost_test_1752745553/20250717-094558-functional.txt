@@ -1,0 +1,73 @@
+
+// ********RoostGPT********
+/*
+
+roost_feedback [17/07/2025, 9:50:08 AM]:give\sme\s2\smore\stest\scases\swith\svalid\sand\sinvalid\spassword
+*/
+
+// ********RoostGPT********
+
+{
+  "scenarios": [
+    {
+      "type": "functional",
+      "title": "User Registration",
+      "description": "Verify successful registration with valid details.",
+      "testId": "TC-001",
+      "testDescription": "A new user provides valid information to create an account.",
+      "prerequisites": "The registration page must be accessible.",
+      "stepsToPerform": "1. Navigate to the registration page.\n2. Enter a valid username.\n3. Enter a valid email address.\n4. Enter a valid password.\n5. Confirm the password.\n6. Click 'Register' button.",
+      "expectedResult": "User receives a confirmation message and is redirected to the login page."
+    },
+    {
+      "type": "functional",
+      "title": "Password Reset",
+      "description": "Verify password reset functionality with a registered email.",
+      "testId": "TC-002",
+      "testDescription": "A user requests a password reset using their registered email address.",
+      "prerequisites": "User must have an existing account with a registered email.",
+      "stepsToPerform": "1. Navigate to the login page.\n2. Click on 'Forgot Password' link.\n3. Enter registered email address.\n4. Click 'Submit' button.",
+      "expectedResult": "User receives a password reset email with instructions to reset their password."
+    },
+    {
+      "type": "non-functional",
+      "title": "Page Load Performance",
+      "description": "Ensure the registration page loads within acceptable time limits.",
+      "testId": "TC-003",
+      "testDescription": "Measure the time taken for the registration page to fully load under normal network conditions.",
+      "prerequisites": "Access to a standard internet connection.",
+      "stepsToPerform": "1. Clear browser cache.\n2. Navigate to the registration page.\n3. Measure the time taken for the page to load completely.",
+      "expectedResult": "The registration page should load within 2 seconds."
+    },
+    {
+      "type": "non-functional",
+      "title": "Security - SQL Injection",
+      "description": "Test the application against SQL injection vulnerabilities.",
+      "testId": "TC-004",
+      "testDescription": "Attempt to perform SQL injection on the login form to ensure the application is secure.",
+      "prerequisites": "Access to the login page.",
+      "stepsToPerform": "1. Navigate to the login page.\n2. Enter a SQL injection string in the username field.\n3. Enter a SQL injection string in the password field.\n4. Click 'Login' button.",
+      "expectedResult": "The application should not allow login and should display an error message without revealing any database information."
+    },
+    {
+      "type": "functional",
+      "title": "Valid Password Test",
+      "description": "Verify user can register with a valid password.",
+      "testId": "TC-005",
+      "testDescription": "A new user provides a valid password during registration.",
+      "prerequisites": "The registration page must be accessible.",
+      "stepsToPerform": "1. Navigate to the registration page.\n2. Enter a valid username.\n3. Enter a valid email address.\n4. Enter a valid password (e.g., 'Password123!').\n5. Confirm the password.\n6. Click 'Register' button.",
+      "expectedResult": "User receives a confirmation message and is redirected to the login page."
+    },
+    {
+      "type": "functional",
+      "title": "Invalid Password Test",
+      "description": "Verify user cannot register with an invalid password.",
+      "testId": "TC-006",
+      "testDescription": "A new user provides an invalid password during registration.",
+      "prerequisites": "The registration page must be accessible.",
+      "stepsToPerform": "1. Navigate to the registration page.\n2. Enter a valid username.\n3. Enter a valid email address.\n4. Enter an invalid password (e.g., '123').\n5. Confirm the password.\n6. Click 'Register' button.",
+      "expectedResult": "User receives an error message indicating the password does not meet the required criteria."
+    }
+  ]
+}
