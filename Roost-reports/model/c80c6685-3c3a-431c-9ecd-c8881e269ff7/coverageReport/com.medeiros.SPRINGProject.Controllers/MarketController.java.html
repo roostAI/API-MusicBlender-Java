@@ -8,43 +8,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = &quot;/product&quot;)
+@RequestMapping(path=&quot;/product&quot;)
 <span class="fc" id="L12">public class MarketController {</span>
+    @Autowired
+    ProductModelRepository ProductRepository;
 
-	@Autowired
-	ProductModelRepository ProductRepository;
+    @Autowired
+    LogRepository Log;
 
-	@Autowired
-	LogRepository Log;
+<span class="fc" id="L19">    LogModel Date = new LogModel();</span>
 
-<span class="fc" id="L20">	LogModel Date = new LogModel();</span>
+    @PostMapping(path=&quot;/create/{userId}&quot;)
+    public String createProduct(
+                                @RequestParam(name=&quot;description&quot;) String description,
+                                @RequestParam(name=&quot;price&quot;) double price,
+                                @RequestParam(name=&quot;musicId&quot;) int musicId,
+                                @PathVariable int userId,
+                                @RequestParam(name=&quot;listproduct&quot;)String listProduct){
 
-	@PostMapping(path = &quot;/create/{userId}&quot;)
-	public String createProduct(@RequestParam(name = &quot;description&quot;) String description,
-			@RequestParam(name = &quot;price&quot;) double price, @RequestParam(name = &quot;musicId&quot;) int musicId,
-			@PathVariable int userId, @RequestParam(name = &quot;listproduct&quot;) String listProduct) {
+<span class="fc" id="L29">        ProductModel product = new ProductModel(description,price,musicId,userId,listProduct);</span>
 
-<span class="fc" id="L27">		ProductModel product = new ProductModel(description, price, musicId, userId, listProduct);</span>
+<span class="fc" id="L31">        ProductRepository.save(product);</span>
+<span class="fc" id="L32">        LogModel logData = new LogModel(&quot;product/create/{userid}&quot; , &quot;Product&quot; , Date.getTimeNow() );</span>
+<span class="fc" id="L33">        Log.save(logData);</span>
+<span class="fc" id="L34">        return &quot;Produto Criado&quot;;</span>
 
-<span class="fc" id="L29">		ProductRepository.save(product);</span>
-<span class="fc" id="L30">		LogModel logData = new LogModel(&quot;product/create/{userid}&quot;, &quot;Product&quot;, Date.getTimeNow());</span>
-<span class="fc" id="L31">		Log.save(logData);</span>
-<span class="fc" id="L32">		return &quot;Produto Criado&quot;;</span>
+    }
 
-	}
+    @GetMapping(path=&quot;/MarketFeed&quot;)
+    public Iterable&lt;ProductModel&gt; showAllProducts(){
 
-	@GetMapping(path = &quot;/MarketFeed&quot;)
-	public Iterable&lt;ProductModel&gt; showAllProducts() {
+<span class="fc" id="L41">        return ProductRepository.findAll();</span>
 
-<span class="fc" id="L39">		return ProductRepository.findAll();</span>
+    }
 
-	}
+    @DeleteMapping(path=&quot;/delete/{id}&quot;)
+    public String deleteProduct(@PathVariable int id){
+<span class="fc" id="L47">        ProductRepository.deleteById(id);</span>
+<span class="fc" id="L48">        return &quot;Produto Deletado&quot;;</span>
+    }
 
-	@DeleteMapping(path = &quot;/delete/{id}&quot;)
-	public String deleteProduct(@PathVariable int id) {
-<span class="fc" id="L45">		ProductRepository.deleteById(id);</span>
-<span class="fc" id="L46">		return &quot;Produto Deletado&quot;;</span>
-	}
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

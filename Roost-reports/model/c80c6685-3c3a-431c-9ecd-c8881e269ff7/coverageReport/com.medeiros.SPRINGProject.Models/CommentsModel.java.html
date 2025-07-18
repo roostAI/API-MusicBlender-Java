@@ -4,79 +4,82 @@ import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.RestController;
 
 @Entity
-@Table(name = &quot;Comments&quot;)
+@Table(name=&quot;Comments&quot;)
 public class CommentsModel {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	private int MusicID;
+    private int MusicID;
 
-	public int getId() {
-<span class="fc" id="L17">		return id;</span>
-	}
+    public int getId() {
+<span class="fc" id="L17">        return id;</span>
+    }
 
-	public void setId(int id) {
-<span class="nc" id="L21">		this.id = id;</span>
-<span class="nc" id="L22">	}</span>
+    public void setId(int id) {
+<span class="nc" id="L21">        this.id = id;</span>
+<span class="nc" id="L22">    }</span>
 
-	public int getMusicID() {
-<span class="fc" id="L25">		return MusicID;</span>
-	}
+    public int getMusicID() {
+<span class="fc" id="L25">        return MusicID;</span>
+    }
 
-	public void setMusicID(int musicID) {
-<span class="fc" id="L29">		MusicID = musicID;</span>
-<span class="fc" id="L30">	}</span>
+    public void setMusicID(int musicID) {
+<span class="fc" id="L29">        MusicID = musicID;</span>
+<span class="fc" id="L30">    }</span>
 
-	public String getComment() {
-<span class="fc" id="L33">		return Comment;</span>
-	}
+    public String getComment() {
+<span class="fc" id="L33">        return Comment;</span>
+    }
 
-	public void setComment(String comment) {
-<span class="fc" id="L37">		Comment = comment;</span>
-<span class="fc" id="L38">	}</span>
+    public void setComment(String comment) {
+<span class="fc" id="L37">        Comment = comment;</span>
+<span class="fc" id="L38">    }</span>
 
-	public int getNumberOfLikes() {
-<span class="fc" id="L41">		return NumberOfLikes;</span>
-	}
+    public int getNumberOfLikes() {
+<span class="fc" id="L41">        return NumberOfLikes;</span>
+    }
 
-	public void setNumberOfLikes(int numberOfLikes) {
-<span class="fc" id="L45">		NumberOfLikes = numberOfLikes;</span>
-<span class="fc" id="L46">	}</span>
+    public void setNumberOfLikes(int numberOfLikes) {
+<span class="fc" id="L45">        NumberOfLikes = numberOfLikes;</span>
+<span class="fc" id="L46">    }</span>
 
-	public int getNumberOfComments() {
-<span class="fc" id="L49">		return NumberOfComments;</span>
-	}
+    public int getNumberOfComments() {
+<span class="fc" id="L49">        return NumberOfComments;</span>
+    }
 
-	public void setNumberOfComments(int numberOfComents) {
-<span class="fc" id="L53">		NumberOfComments = numberOfComents;</span>
-<span class="fc" id="L54">	}</span>
+    public void setNumberOfComments(int numberOfComents) {
+<span class="fc" id="L53">        NumberOfComments = numberOfComents;</span>
+<span class="fc" id="L54">    }</span>
 
-	public int getNumberOfLoves() {
-<span class="fc" id="L57">		return NumberOfLoves;</span>
-	}
+    public int getNumberOfLoves() {
+<span class="fc" id="L57">        return NumberOfLoves;</span>
+    }
 
-	public void setNumberOfLoves(int numberOfLoves) {
-<span class="fc" id="L61">		NumberOfLoves = numberOfLoves;</span>
-<span class="fc" id="L62">	}</span>
+    public void setNumberOfLoves(int numberOfLoves) {
+<span class="fc" id="L61">        NumberOfLoves = numberOfLoves;</span>
+<span class="fc" id="L62">    }</span>
 
-	private String Comment;
+    private String Comment;
 
-	private int NumberOfLikes;
+    private int NumberOfLikes;
 
-	private int NumberOfComments;
+    private int NumberOfComments;
 
-	private int NumberOfLoves;
+    private int NumberOfLoves;
 
-<span class="fc" id="L72">	public CommentsModel(String Comment, int MusicID) {</span>
-<span class="fc" id="L73">		this.Comment = Comment;</span>
-<span class="fc" id="L74">		this.MusicID = MusicID;</span>
-<span class="fc" id="L75">	}</span>
+<span class="fc" id="L72">    public CommentsModel(String Comment, int MusicID ){</span>
+<span class="fc" id="L73">        this.Comment = Comment;</span>
+<span class="fc" id="L74">        this.MusicID = MusicID;</span>
+<span class="fc" id="L75">    }</span>
 
-<span class="fc" id="L77">	public CommentsModel() {</span>
+<span class="fc" id="L77">    public CommentsModel(){</span>
 
-<span class="fc" id="L79">	}</span>
+<span class="fc" id="L79">    }</span>
+
+
+
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -3,102 +3,100 @@
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = &quot;MusicModel&quot;)
+@Table(name=&quot;MusicModel&quot;)
 public class MusicModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    private int MusicId;
 
-	private int MusicId;
+    private String MusicName;
 
-	private String MusicName;
+    private String Music;
 
-	private String Music;
+    private String MusicDescription;
 
-	private String MusicDescription;
+    private int NumberOfLikes;
 
-	private int NumberOfLikes;
+    public int getMusicId() {
+<span class="fc" id="L23">        return MusicId;</span>
+    }
 
-	public int getMusicId() {
-<span class="fc" id="L24">		return MusicId;</span>
-	}
+    public void setMusicId(int musicId) {
+<span class="fc" id="L27">        MusicId = musicId;</span>
+<span class="fc" id="L28">    }</span>
 
-	public void setMusicId(int musicId) {
-<span class="fc" id="L28">		MusicId = musicId;</span>
-<span class="fc" id="L29">	}</span>
+    public int getNumberOfLikes() {
+<span class="fc" id="L31">        return NumberOfLikes;</span>
+    }
 
-	public int getNumberOfLikes() {
-<span class="fc" id="L32">		return NumberOfLikes;</span>
-	}
+    public void setNumberOfLikes(int numberOfLikes) {
+<span class="fc" id="L35">        NumberOfLikes = numberOfLikes;</span>
+<span class="fc" id="L36">    }</span>
 
-	public void setNumberOfLikes(int numberOfLikes) {
-<span class="fc" id="L36">		NumberOfLikes = numberOfLikes;</span>
-<span class="fc" id="L37">	}</span>
+    public int getNumberOfComents() {
+<span class="fc" id="L39">        return NumberOfComents;</span>
+    }
 
-	public int getNumberOfComents() {
-<span class="fc" id="L40">		return NumberOfComents;</span>
-	}
+    public void setNumberOfComents(int numberOfComents) {
+<span class="fc" id="L43">        NumberOfComents = numberOfComents;</span>
+<span class="fc" id="L44">    }</span>
 
-	public void setNumberOfComents(int numberOfComents) {
-<span class="fc" id="L44">		NumberOfComents = numberOfComents;</span>
-<span class="fc" id="L45">	}</span>
+    public int getNumberOfLoves() {
+<span class="fc" id="L47">        return NumberOfLoves;</span>
+    }
 
-	public int getNumberOfLoves() {
-<span class="fc" id="L48">		return NumberOfLoves;</span>
-	}
+    public void setNumberOfLoves(int numberOfLoves) {
+<span class="fc" id="L51">        NumberOfLoves = numberOfLoves;</span>
+<span class="fc" id="L52">    }</span>
 
-	public void setNumberOfLoves(int numberOfLoves) {
-<span class="fc" id="L52">		NumberOfLoves = numberOfLoves;</span>
-<span class="fc" id="L53">	}</span>
+    private int NumberOfComents;
 
-	private int NumberOfComents;
+    private int NumberOfLoves;
 
-	private int NumberOfLoves;
+<span class="fc" id="L58">    public MusicModel(int MusicId , String MusicName , String Music , String MusicDescription){</span>
+<span class="fc" id="L59">        this.MusicId = MusicId;</span>
+<span class="fc" id="L60">        this.Music = Music;</span>
+<span class="fc" id="L61">        this.MusicDescription = MusicDescription;</span>
+<span class="fc" id="L62">        this.MusicName = MusicName;</span>
 
-<span class="fc" id="L59">	public MusicModel(int MusicId, String MusicName, String Music, String MusicDescription) {</span>
-<span class="fc" id="L60">		this.MusicId = MusicId;</span>
-<span class="fc" id="L61">		this.Music = Music;</span>
-<span class="fc" id="L62">		this.MusicDescription = MusicDescription;</span>
-<span class="fc" id="L63">		this.MusicName = MusicName;</span>
+<span class="fc" id="L64">    }</span>
 
-<span class="fc" id="L65">	}</span>
+    public int getId() {
+<span class="fc" id="L67">        return id;</span>
+    }
 
-	public int getId() {
-<span class="fc" id="L68">		return id;</span>
-	}
+    public void setId(int id) {
+<span class="fc" id="L71">        this.id = id;</span>
+<span class="fc" id="L72">    }</span>
 
-	public void setId(int id) {
-<span class="fc" id="L72">		this.id = id;</span>
-<span class="fc" id="L73">	}</span>
+    public String getMusicName() {
+<span class="fc" id="L75">        return MusicName;</span>
+    }
 
-	public String getMusicName() {
-<span class="fc" id="L76">		return MusicName;</span>
-	}
+    public void setMusicName(String musicName) {
+<span class="fc" id="L79">        MusicName = musicName;</span>
+<span class="fc" id="L80">    }</span>
 
-	public void setMusicName(String musicName) {
-<span class="fc" id="L80">		MusicName = musicName;</span>
-<span class="fc" id="L81">	}</span>
+    public String getMusic() {
+<span class="fc" id="L83">        return Music;</span>
+    }
 
-	public String getMusic() {
-<span class="fc" id="L84">		return Music;</span>
-	}
+    public void setMusic(String music) {
+<span class="fc" id="L87">        Music = music;</span>
+<span class="fc" id="L88">    }</span>
 
-	public void setMusic(String music) {
-<span class="fc" id="L88">		Music = music;</span>
-<span class="fc" id="L89">	}</span>
+    public String getMusicDescription() {
+<span class="fc" id="L91">        return MusicDescription;</span>
+    }
 
-	public String getMusicDescription() {
-<span class="fc" id="L92">		return MusicDescription;</span>
-	}
+<span class="fc" id="L94">    public MusicModel(){</span>
 
-<span class="fc" id="L95">	public MusicModel() {</span>
+<span class="fc" id="L96">    }</span>
 
-<span class="fc" id="L97">	}</span>
-
-	public void setMusicDescription(String musicDescription) {
-<span class="fc" id="L100">		MusicDescription = musicDescription;</span>
-<span class="fc" id="L101">	}</span>
-
+    public void setMusicDescription(String musicDescription) {
+<span class="fc" id="L99">        MusicDescription = musicDescription;</span>
+<span class="fc" id="L100">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

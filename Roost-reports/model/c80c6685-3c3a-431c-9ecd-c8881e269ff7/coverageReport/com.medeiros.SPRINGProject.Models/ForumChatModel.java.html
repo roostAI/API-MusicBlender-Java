@@ -3,60 +3,59 @@
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = &quot;ForumChat&quot;)
+@Table(name=&quot;ForumChat&quot;)
 public class ForumChatModel {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	public int getId() {
-<span class="fc" id="L14">		return id;</span>
-	}
+    public int getId() {
+<span class="fc" id="L14">        return id;</span>
+    }
 
-	public void setId(int id) {
-<span class="fc" id="L18">		this.id = id;</span>
-<span class="fc" id="L19">	}</span>
+    public void setId(int id) {
+<span class="fc" id="L18">        this.id = id;</span>
+<span class="fc" id="L19">    }</span>
 
-	public String getMessage() {
-<span class="fc" id="L22">		return message;</span>
-	}
+    public String getMessage() {
+<span class="fc" id="L22">        return message;</span>
+    }
 
-	public void setMessage(String message) {
-<span class="fc" id="L26">		this.message = message;</span>
-<span class="fc" id="L27">	}</span>
+    public void setMessage(String message) {
+<span class="fc" id="L26">        this.message = message;</span>
+<span class="fc" id="L27">    }</span>
 
-	public int getUserId() {
-<span class="fc" id="L30">		return userId;</span>
-	}
+    public int getUserId() {
+<span class="fc" id="L30">        return userId;</span>
+    }
 
-	public void setUserId(int userId) {
-<span class="fc" id="L34">		this.userId = userId;</span>
-<span class="fc" id="L35">	}</span>
+    public void setUserId(int userId) {
+<span class="fc" id="L34">        this.userId = userId;</span>
+<span class="fc" id="L35">    }</span>
 
-<span class="fc" id="L37">	public ForumChatModel(String message, int userId, int forumId) {</span>
-<span class="fc" id="L38">		this.message = message;</span>
-<span class="fc" id="L39">		this.userId = userId;</span>
-<span class="fc" id="L40">		this.forumId = forumId;</span>
-<span class="fc" id="L41">	}</span>
+<span class="fc" id="L37">    public ForumChatModel(String message, int userId, int forumId) {</span>
+<span class="fc" id="L38">        this.message = message;</span>
+<span class="fc" id="L39">        this.userId = userId;</span>
+<span class="fc" id="L40">        this.forumId = forumId;</span>
+<span class="fc" id="L41">    }</span>
+<span class="fc" id="L42">    public ForumChatModel(){</span>
 
-<span class="fc" id="L43">	public ForumChatModel() {</span>
+<span class="fc" id="L44">    }</span>
 
-<span class="fc" id="L45">	}</span>
+    private String message;
 
-	private String message;
+    private int userId;
 
-	private int userId;
+    public int getForumId() {
+<span class="fc" id="L51">        return forumId;</span>
+    }
 
-	public int getForumId() {
-<span class="fc" id="L52">		return forumId;</span>
-	}
+    public void setForumId(int forumId) {
+<span class="fc" id="L55">        this.forumId = forumId;</span>
+<span class="fc" id="L56">    }</span>
 
-	public void setForumId(int forumId) {
-<span class="fc" id="L56">		this.forumId = forumId;</span>
-<span class="fc" id="L57">	}</span>
-
-	private int forumId;
+    private int forumId;
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

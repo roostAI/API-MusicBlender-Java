@@ -3,26 +3,24 @@
 import java.util.*;
 
 <span class="nc" id="L5">public class hashMapFunctions {</span>
+    public static HashMap&lt;String, Integer&gt; ordenarHashMapPorValor(HashMap&lt;String, Integer&gt; hashMap) {
+<span class="fc" id="L7">        List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new LinkedList&lt;&gt;(hashMap.entrySet());</span>
 
-	public static HashMap&lt;String, Integer&gt; ordenarHashMapPorValor(HashMap&lt;String, Integer&gt; hashMap) {
-<span class="fc" id="L8">		List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new LinkedList&lt;&gt;(hashMap.entrySet());</span>
+        // Ordena a lista de acordo com os valores dos elementos do mapa em ordem decrescente
+<span class="fc" id="L10">        list.sort(new Comparator&lt;Map.Entry&lt;String, Integer&gt;&gt;() {</span>
+            public int compare(Map.Entry&lt;String, Integer&gt; o1, Map.Entry&lt;String, Integer&gt; o2) {
+<span class="fc" id="L12">                return (o2.getValue()).compareTo(o1.getValue());</span>
+            }
+        });
 
-		// Ordena a lista de acordo com os valores dos elementos do mapa em ordem
-		// decrescente
-<span class="fc" id="L12">		list.sort(new Comparator&lt;Map.Entry&lt;String, Integer&gt;&gt;() {</span>
-			public int compare(Map.Entry&lt;String, Integer&gt; o1, Map.Entry&lt;String, Integer&gt; o2) {
-<span class="fc" id="L14">				return (o2.getValue()).compareTo(o1.getValue());</span>
-			}
-		});
+        // Cria um LinkedHashMap a partir da lista ordenada
+<span class="fc" id="L17">        HashMap&lt;String, Integer&gt; sortedHashMap = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        for (Map.Entry&lt;String, Integer&gt; entry : list) {</span>
+<span class="fc" id="L19">            sortedHashMap.put(entry.getKey(), entry.getValue());</span>
+<span class="fc" id="L20">        }</span>
 
-		// Cria um LinkedHashMap a partir da lista ordenada
-<span class="fc" id="L19">		HashMap&lt;String, Integer&gt; sortedHashMap = new LinkedHashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L20" title="All 2 branches covered.">		for (Map.Entry&lt;String, Integer&gt; entry : list) {</span>
-<span class="fc" id="L21">			sortedHashMap.put(entry.getKey(), entry.getValue());</span>
-<span class="fc" id="L22">		}</span>
-
-<span class="fc" id="L24">		return sortedHashMap;</span>
-	}
+<span class="fc" id="L22">        return sortedHashMap;</span>
+    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

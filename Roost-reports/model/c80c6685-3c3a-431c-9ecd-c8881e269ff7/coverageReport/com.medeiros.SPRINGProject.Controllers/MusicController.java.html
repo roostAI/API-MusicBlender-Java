@@ -11,46 +11,52 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(&quot;/music&quot;)
 <span class="fc" id="L12">public class MusicController {</span>
 
-	@Autowired
-	LogRepository Log;
+    @Autowired
+    LogRepository Log;
+    @Autowired
+    MusicRepository MusicRepo;
 
-	@Autowired
-	MusicRepository MusicRepo;
+<span class="fc" id="L19">    LogModel Date = new LogModel();</span>
 
-<span class="fc" id="L20">	LogModel Date = new LogModel();</span>
+    @PostMapping(path=&quot;/create/{Userid}&quot;)
+    public String createMusic(@RequestParam(name=&quot;MusicDescription&quot;) String MusicDescription,
+                       @RequestParam(name=&quot;MusicName&quot;) String MusicName,
+                       @RequestParam(name=&quot;Music&quot;) String Music, @PathVariable int Userid
+                       ){
+<span class="fc" id="L26">        MusicModel newMusic = new MusicModel(Userid , MusicName , Music , MusicDescription );</span>
+<span class="fc" id="L27">        MusicRepo.save(newMusic);</span>
+<span class="fc" id="L28">        return &quot;Operação Feita&quot;;</span>
+    }
 
-	@PostMapping(path = &quot;/create/{Userid}&quot;)
-	public String createMusic(@RequestParam(name = &quot;MusicDescription&quot;) String MusicDescription,
-			@RequestParam(name = &quot;MusicName&quot;) String MusicName, @RequestParam(name = &quot;Music&quot;) String Music,
-			@PathVariable int Userid) {
-<span class="fc" id="L26">		MusicModel newMusic = new MusicModel(Userid, MusicName, Music, MusicDescription);</span>
-<span class="fc" id="L27">		MusicRepo.save(newMusic);</span>
-<span class="fc" id="L28">		return &quot;Operação Feita&quot;;</span>
-	}
+    @DeleteMapping(path=&quot;/delete/{id}&quot;)
+    public String deleteMusic(@PathVariable int id){
+<span class="fc" id="L33">            MusicRepo.deleteById(id);</span>
+<span class="fc" id="L34">            return &quot;Deletado&quot;;</span>
 
-	@DeleteMapping(path = &quot;/delete/{id}&quot;)
-	public String deleteMusic(@PathVariable int id) {
-<span class="fc" id="L33">		MusicRepo.deleteById(id);</span>
-<span class="fc" id="L34">		return &quot;Deletado&quot;;</span>
+    }
 
-	}
 
-	@GetMapping(path = &quot;/findMusicBy/{id}&quot;)
-	public MusicModel findMusicBy(@PathVariable int id) {
-<span class="fc" id="L40">		return MusicRepo.findById(id);</span>
-	}
+    @GetMapping(path=&quot;/findMusicBy/{id}&quot;)
+    public MusicModel findMusicBy(@PathVariable int id){
+<span class="fc" id="L41">        return MusicRepo.findById(id);</span>
+    }
 
-	@PostMapping(path = &quot;/update/{id}&quot;)
-	public String updateMusicById(@PathVariable int id, @RequestParam(name = &quot;MusicName&quot;) String MusicName,
-			@RequestParam(name = &quot;MusicDescription&quot;) String MusicDescription,
-			@RequestParam(name = &quot;Music&quot;) String Music) {
-<span class="fc" id="L47">		MusicModel musicToUpdate = MusicRepo.findById(id);</span>
-<span class="fc" id="L48">		musicToUpdate.setMusic(Music);</span>
-<span class="fc" id="L49">		musicToUpdate.setMusicDescription(MusicDescription);</span>
-<span class="fc" id="L50">		musicToUpdate.setMusicName(MusicName);</span>
-<span class="fc" id="L51">		MusicRepo.save(musicToUpdate);</span>
-<span class="fc" id="L52">		return &quot;Música Alterada!&quot;;</span>
-	}
+
+
+    @PostMapping(path=&quot;/update/{id}&quot;)
+    public String updateMusicById(@PathVariable int id ,
+                                  @RequestParam(name=&quot;MusicName&quot;) String MusicName,
+                                  @RequestParam(name=&quot;MusicDescription&quot;) String MusicDescription,
+                                  @RequestParam(name=&quot;Music&quot;) String Music
+                                  ){
+<span class="fc" id="L52">        MusicModel musicToUpdate = MusicRepo.findById(id);</span>
+<span class="fc" id="L53">        musicToUpdate.setMusic(Music);</span>
+<span class="fc" id="L54">        musicToUpdate.setMusicDescription(MusicDescription);</span>
+<span class="fc" id="L55">        musicToUpdate.setMusicName(MusicName);</span>
+<span class="fc" id="L56">        MusicRepo.save(musicToUpdate);</span>
+<span class="fc" id="L57">        return &quot;Música Alterada!&quot;;</span>
+    }
+
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

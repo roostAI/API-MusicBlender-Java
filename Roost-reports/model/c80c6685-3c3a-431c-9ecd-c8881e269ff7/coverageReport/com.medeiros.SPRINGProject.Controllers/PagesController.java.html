@@ -10,18 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 <span class="fc" id="L11">public class PagesController {</span>
 
-	@Autowired
-	LogRepository Log;
-
-<span class="fc" id="L16">	LogModel Date = new LogModel();</span>
-
-	@GetMapping(&quot;/pagina&quot;)
-	public ModelAndView minhaPagina() {
-<span class="fc" id="L20">		ModelAndView modelAndView = new ModelAndView(&quot;minhaPagina&quot;);</span>
-<span class="fc" id="L21">		modelAndView.addObject(&quot;titulo&quot;, &quot;Minha Página&quot;);</span>
-<span class="fc" id="L22">		modelAndView.addObject(&quot;mensagem&quot;, &quot;Bem-vindo à minha página!&quot;);</span>
-<span class="fc" id="L23">		return modelAndView;</span>
-	}
+    @Autowired
+    LogRepository Log;
+<span class="fc" id="L15">    LogModel Date = new LogModel();</span>
+    @GetMapping(&quot;/pagina&quot;)
+    public ModelAndView minhaPagina() {
+<span class="fc" id="L18">        ModelAndView modelAndView = new ModelAndView(&quot;minhaPagina&quot;);</span>
+<span class="fc" id="L19">        modelAndView.addObject(&quot;titulo&quot;, &quot;Minha Página&quot;);</span>
+<span class="fc" id="L20">        modelAndView.addObject(&quot;mensagem&quot;, &quot;Bem-vindo à minha página!&quot;);</span>
+<span class="fc" id="L21">        return modelAndView;</span>
+    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

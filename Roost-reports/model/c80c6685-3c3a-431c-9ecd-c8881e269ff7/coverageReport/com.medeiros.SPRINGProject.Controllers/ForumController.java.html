@@ -5,39 +5,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = &quot;/forum&quot;)
+@RequestMapping(path=&quot;/forum&quot;)
 <span class="fc" id="L9">public class ForumController {</span>
 
-	@Autowired
-	LogRepository Log;
+    @Autowired
+    LogRepository Log;
+    @Autowired
+    ForumIndexRepository ForumIndexRepo;
+    @Autowired
+    ForumChatRepository ChatRepository;
 
-	@Autowired
-	ForumIndexRepository ForumIndexRepo;
+    @PostMapping(path=&quot;/create/{userId}&quot;)
+    @ResponseBody
+    public String createForumIndex(@RequestParam(name=&quot;nameForum&quot;) String nameForum,
+                                   @RequestParam(name=&quot;forumDescription&quot;) String forumDescription,
+                                   @PathVariable int userId){
+<span class="fc" id="L23">        ForumIndexModel newForum = new ForumIndexModel(nameForum , userId ,forumDescription , userId);</span>
+<span class="fc" id="L24">        ForumIndexRepo.save(newForum);</span>
+<span class="fc" id="L25">        return &quot;Forum criado&quot;;</span>
+    }
 
-	@Autowired
-	ForumChatRepository ChatRepository;
+    @PostMapping(path=&quot;/message/{forumId}/{userId}&quot;)
+    public String newMessage(@RequestParam(name=&quot;message&quot;) String message,
+                             @PathVariable int userId,
+                            @PathVariable int forumId ){
+<span class="fc" id="L32">        ForumChatModel messageForum = new ForumChatModel(message, userId , forumId);</span>
+<span class="fc" id="L33">        ChatRepository.save(messageForum);</span>
+<span class="fc" id="L34">        return message;</span>
+    }
 
-	@PostMapping(path = &quot;/create/{userId}&quot;)
-	@ResponseBody
-	public String createForumIndex(@RequestParam(name = &quot;nameForum&quot;) String nameForum,
-			@RequestParam(name = &quot;forumDescription&quot;) String forumDescription, @PathVariable int userId) {
-<span class="fc" id="L24">		ForumIndexModel newForum = new ForumIndexModel(nameForum, userId, forumDescription, userId);</span>
-<span class="fc" id="L25">		ForumIndexRepo.save(newForum);</span>
-<span class="fc" id="L26">		return &quot;Forum criado&quot;;</span>
-	}
+    @GetMapping(path=&quot;/showMessages/&quot;)
+    public Iterable&lt;ForumChatModel&gt; showMessages(){
+<span class="nc" id="L39">        return ChatRepository.findAll();</span>
+    }
 
-	@PostMapping(path = &quot;/message/{forumId}/{userId}&quot;)
-	public String newMessage(@RequestParam(name = &quot;message&quot;) String message, @PathVariable int userId,
-			@PathVariable int forumId) {
-<span class="fc" id="L32">		ForumChatModel messageForum = new ForumChatModel(message, userId, forumId);</span>
-<span class="fc" id="L33">		ChatRepository.save(messageForum);</span>
-<span class="fc" id="L34">		return message;</span>
-	}
 
-	@GetMapping(path = &quot;/showMessages/&quot;)
-	public Iterable&lt;ForumChatModel&gt; showMessages() {
-<span class="nc" id="L39">		return ChatRepository.findAll();</span>
-	}
+
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

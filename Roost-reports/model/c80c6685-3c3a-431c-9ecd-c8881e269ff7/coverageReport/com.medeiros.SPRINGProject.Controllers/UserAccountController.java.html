@@ -11,61 +11,64 @@ import java.util.Optional;
 @RestController
 @RequestMapping(&quot;/user&quot;)
 <span class="fc" id="L13">public class UserAccountController {</span>
+    @Autowired
+    UserAccRepository UserAccRepo;
+    @Autowired
+    UserInfoRepository UserInfoRepo;
+    @Autowired
+    LogRepository Log;
+<span class="fc" id="L20">    LogModel Date = new LogModel();</span>
 
-	@Autowired
-	UserAccRepository UserAccRepo;
+    @GetMapping(path=&quot;/findUser&quot;)
+    public User_Credentials findUserById(@RequestParam(name = &quot;id&quot;) String ID){
+<span class="nc" id="L24">        int intID = Integer.parseInt(ID);</span>
+<span class="nc" id="L25">        return UserAccRepo.findById(intID);</span>
+    }
+    @DeleteMapping(path=&quot;/delete&quot;)
+    public String deleteUserById(@RequestParam(name=&quot;id&quot;) String ID){
+<span class="fc" id="L29">        int intID = Integer.parseInt(ID);</span>
+<span class="fc" id="L30">        UserAccRepo.deleteById(intID);</span>
+<span class="fc" id="L31">        return &quot;Conta Deletada&quot;;</span>
+    }
+    @PostMapping(path=&quot;/update&quot;)
+    public String updateUserById(@RequestParam(name=&quot;id&quot;)String id,
+                                 @RequestParam(name=&quot;email&quot;)String email,
+                                 @RequestParam(name=&quot;password&quot;)String password,
+                                 @RequestParam(name=&quot;username&quot;)String username)
+    {
+<span class="nc" id="L39">        int intID = Integer.parseInt(id);</span>
+<span class="nc" id="L40">        User_Credentials userExist = UserAccRepo.findById(intID);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if(userExist != null){</span>
+<span class="nc" id="L42">            userExist.setEmail(email);</span>
+<span class="nc" id="L43">            userExist.setPassword(password);</span>
+<span class="nc" id="L44">            userExist.setUsername(username);</span>
+<span class="nc" id="L45">            UserAccRepo.save(userExist);</span>
+<span class="nc" id="L46">            return &quot;Usuário Salvo&quot;;</span>
+        }else{
+<span class="nc" id="L48">            return &quot;User não encontrado&quot;;</span>
+        }
 
-	@Autowired
-	UserInfoRepository UserInfoRepo;
+    }
 
-	@Autowired
-	LogRepository Log;
 
-<span class="fc" id="L24">	LogModel Date = new LogModel();</span>
+    @PostMapping(path=&quot;/createInfo/{userId}&quot;)
+    public String updateInfoUserBy(@PathVariable int userId,
+                                   @RequestParam(name=&quot;photoURL&quot;)String photoURL,
+                                   @RequestParam(name=&quot;favoritesMusics&quot;)String favoritesMusics,
+                                   @RequestParam(name=&quot;gender&quot;)String gender,
+                                   @RequestParam(name=&quot;phone&quot;)String phone,
+                                   @RequestParam(name=&quot;instaURL&quot;)String instaURL,
+                                   @RequestParam(name=&quot;twitterURL&quot;)String twitterURL,
+                                   @RequestParam(name=&quot;favoritesThings&quot;)String favoritesThings){
 
-	@GetMapping(path = &quot;/findUser&quot;)
-	public User_Credentials findUserById(@RequestParam(name = &quot;id&quot;) String ID) {
-<span class="nc" id="L28">		int intID = Integer.parseInt(ID);</span>
-<span class="nc" id="L29">		return UserAccRepo.findById(intID);</span>
-	}
+<span class="fc" id="L64">        User_Info userInfo = new User_Info(userId , photoURL ,favoritesMusics ,gender ,phone ,instaURL ,twitterURL,favoritesThings );</span>
+<span class="nc" id="L65">        UserInfoRepo.save(userInfo);</span>
+<span class="nc" id="L66">        return &quot;ATUALIZADO&quot;;</span>
+    }
 
-	@DeleteMapping(path = &quot;/delete&quot;)
-	public String deleteUserById(@RequestParam(name = &quot;id&quot;) String ID) {
-<span class="fc" id="L34">		int intID = Integer.parseInt(ID);</span>
-<span class="fc" id="L35">		UserAccRepo.deleteById(intID);</span>
-<span class="fc" id="L36">		return &quot;Conta Deletada&quot;;</span>
-	}
 
-	@PostMapping(path = &quot;/update&quot;)
-	public String updateUserById(@RequestParam(name = &quot;id&quot;) String id, @RequestParam(name = &quot;email&quot;) String email,
-			@RequestParam(name = &quot;password&quot;) String password, @RequestParam(name = &quot;username&quot;) String username) {
-<span class="nc" id="L42">		int intID = Integer.parseInt(id);</span>
-<span class="nc" id="L43">		User_Credentials userExist = UserAccRepo.findById(intID);</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">		if (userExist != null) {</span>
-<span class="nc" id="L45">			userExist.setEmail(email);</span>
-<span class="nc" id="L46">			userExist.setPassword(password);</span>
-<span class="nc" id="L47">			userExist.setUsername(username);</span>
-<span class="nc" id="L48">			UserAccRepo.save(userExist);</span>
-<span class="nc" id="L49">			return &quot;Usuário Salvo&quot;;</span>
-		}
-		else {
-<span class="nc" id="L52">			return &quot;User não encontrado&quot;;</span>
-		}
 
-	}
 
-	@PostMapping(path = &quot;/createInfo/{userId}&quot;)
-	public String updateInfoUserBy(@PathVariable int userId, @RequestParam(name = &quot;photoURL&quot;) String photoURL,
-			@RequestParam(name = &quot;favoritesMusics&quot;) String favoritesMusics,
-			@RequestParam(name = &quot;gender&quot;) String gender, @RequestParam(name = &quot;phone&quot;) String phone,
-			@RequestParam(name = &quot;instaURL&quot;) String instaURL, @RequestParam(name = &quot;twitterURL&quot;) String twitterURL,
-			@RequestParam(name = &quot;favoritesThings&quot;) String favoritesThings) {
-
-<span class="fc" id="L64">		User_Info userInfo = new User_Info(userId, photoURL, favoritesMusics, gender, phone, instaURL, twitterURL,</span>
-				favoritesThings);
-<span class="nc" id="L66">		UserInfoRepo.save(userInfo);</span>
-<span class="nc" id="L67">		return &quot;ATUALIZADO&quot;;</span>
-	}
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -9,62 +9,63 @@ import java.time.LocalDateTime;
 
 @Entity
 public class LogModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int logId;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int logId;
+    public int getLogId() {
+<span class="fc" id="L17">        return logId;</span>
+    }
 
-	public int getLogId() {
-<span class="fc" id="L18">		return logId;</span>
-	}
+    public void setLogId(int logId) {
+<span class="fc" id="L21">        this.logId = logId;</span>
+<span class="fc" id="L22">    }</span>
 
-	public void setLogId(int logId) {
-<span class="fc" id="L22">		this.logId = logId;</span>
-<span class="fc" id="L23">	}</span>
+    public String getComando() {
+<span class="fc" id="L25">        return comando;</span>
+    }
 
-	public String getComando() {
-<span class="fc" id="L26">		return comando;</span>
-	}
+    public void setComando(String comando) {
+<span class="nc" id="L29">        this.comando = comando;</span>
+<span class="nc" id="L30">    }</span>
 
-	public void setComando(String comando) {
-<span class="nc" id="L30">		this.comando = comando;</span>
-<span class="nc" id="L31">	}</span>
+    public String getClasse() {
+<span class="fc" id="L33">        return classe;</span>
+    }
 
-	public String getClasse() {
-<span class="fc" id="L34">		return classe;</span>
-	}
+    public void setClasse(String classe) {
+<span class="nc" id="L37">        this.classe = classe;</span>
+<span class="nc" id="L38">    }</span>
 
-	public void setClasse(String classe) {
-<span class="nc" id="L38">		this.classe = classe;</span>
-<span class="nc" id="L39">	}</span>
+    public LocalDateTime getData() {
+<span class="fc" id="L41">        return data;</span>
+    }
 
-	public LocalDateTime getData() {
-<span class="fc" id="L42">		return data;</span>
-	}
+    public void setData(LocalDateTime data) {
+<span class="fc" id="L45">        this.data = data;</span>
+<span class="fc" id="L46">    }</span>
 
-	public void setData(LocalDateTime data) {
-<span class="fc" id="L46">		this.data = data;</span>
-<span class="fc" id="L47">	}</span>
+    private String comando;
 
-	private String comando;
+    private String classe;
 
-	private String classe;
+    private LocalDateTime data;
 
-	private LocalDateTime data;
+<span class="fc" id="L54">    public LogModel(String comando, String classe, LocalDateTime data){</span>
+<span class="fc" id="L55">        this.comando =comando;</span>
+<span class="fc" id="L56">        this.classe =classe;</span>
+<span class="fc" id="L57">        this.data =data;</span>
+<span class="fc" id="L58">    }</span>
 
-<span class="fc" id="L55">	public LogModel(String comando, String classe, LocalDateTime data) {</span>
-<span class="fc" id="L56">		this.comando = comando;</span>
-<span class="fc" id="L57">		this.classe = classe;</span>
-<span class="fc" id="L58">		this.data = data;</span>
-<span class="fc" id="L59">	}</span>
+    public LocalDateTime getTimeNow(){
+<span class="fc" id="L61">        return LocalDateTime.now();</span>
+    }
 
-	public LocalDateTime getTimeNow() {
-<span class="fc" id="L62">		return LocalDateTime.now();</span>
-	}
+<span class="fc" id="L64">    public LogModel(){</span>
 
-<span class="fc" id="L65">	public LogModel() {</span>
-
-<span class="fc" id="L67">	}</span>
+<span class="fc" id="L66">    }</span>
 
 }
+
+
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
