@@ -66,9 +66,12 @@ Execution:
 Validation:
   This test ensures that the method correctly handles empty string inputs by throwing an appropriate exception, maintaining robustness against invalid input values.
 
+
+roost_feedback [18/07/2025, 11:11:52 AM]:Add\smore\scomments\sand\simprove\scoverage\sreport
 */
 
 // ********RoostGPT********
+
 package com.medeiros.SPRINGProject.Controllers;
 
 import com.medeiros.SPRINGProject.Models.User_Credentials;
@@ -108,7 +111,7 @@ public class UserAccountControllerDeleteUserByIdTest {
 	@Tag("valid")
 	public void deleteUserByIdSuccessfully() {
 		// Arrange
-		int validUserId = 1; // TODO: Change to a valid user ID
+		int validUserId = 1; 
 		Mockito.doNothing().when(userAccRepo).deleteById(validUserId);
 		// Act
 		String result = userAccountController.deleteUserById(String.valueOf(validUserId));
@@ -131,7 +134,7 @@ public class UserAccountControllerDeleteUserByIdTest {
 	@Tag("boundary")
 	public void deleteUserByIdNonExistentUser() {
 		// Arrange
-		int nonExistentUserId = 999; // TODO: Change to a non-existent user ID
+		int nonExistentUserId = 999; 
 		Mockito.doNothing().when(userAccRepo).deleteById(nonExistentUserId);
 		// Act
 		String result = userAccountController.deleteUserById(String.valueOf(nonExistentUserId));
@@ -161,4 +164,15 @@ public class UserAccountControllerDeleteUserByIdTest {
 		});
 	}
 
+	@Test
+	@Tag("exception")
+	public void deleteUserByIdThrowsException() {
+		// Arrange
+		int userId = 2;
+		Mockito.doThrow(new RuntimeException("Database error")).when(userAccRepo).deleteById(userId);
+		// Act & Assert
+		assertThrows(RuntimeException.class, () -> {
+			userAccountController.deleteUserById(String.valueOf(userId));
+		});
+	}
 }

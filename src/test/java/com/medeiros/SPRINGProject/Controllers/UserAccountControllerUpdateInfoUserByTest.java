@@ -78,9 +78,12 @@ Execution:
 Validation:
   This test is crucial for ensuring that the method can handle a wide range of input characters, which is important for internationalization and user data flexibility.
 
+
+roost_feedback [18/07/2025, 11:13:15 AM]:Add\smore\sdebugging\sconsoles
 */
 
 // ********RoostGPT********
+
 package com.medeiros.SPRINGProject.Controllers;
 
 import com.medeiros.SPRINGProject.Models.User_Info;
@@ -127,8 +130,10 @@ class UserAccountControllerUpdateInfoUserByTest {
 		User_Info expectedUserInfo = new User_Info(userId, photoURL, favoritesMusics, gender, phone, instaURL,
 				twitterURL, favoritesThings);
 		doNothing().when(userInfoRepo).save(expectedUserInfo);
+		System.out.println("Attempting to update user information...");
 		String result = userAccountController.updateInfoUserBy(userId, photoURL, favoritesMusics, gender, phone,
 				instaURL, twitterURL, favoritesThings);
+		System.out.println("Update result: " + result);
 		assertEquals("ATUALIZADO", result);
 		verify(userInfoRepo, times(1)).save(expectedUserInfo);
 	}
@@ -145,6 +150,7 @@ class UserAccountControllerUpdateInfoUserByTest {
 		String twitterURL = "http://twitter.com/user";
 		String favoritesThings = "Books, Movies";
 		doThrow(new RuntimeException("User not found")).when(userInfoRepo).save(any(User_Info.class));
+		System.out.println("Attempting to update non-existent user...");
 		assertThrows(RuntimeException.class, () -> {
 			userAccountController.updateInfoUserBy(userId, photoURL, favoritesMusics, gender, phone, instaURL,
 					twitterURL, favoritesThings);
@@ -165,8 +171,10 @@ class UserAccountControllerUpdateInfoUserByTest {
 		User_Info expectedUserInfo = new User_Info(userId, photoURL, favoritesMusics, gender, phone, instaURL,
 				twitterURL, favoritesThings);
 		doNothing().when(userInfoRepo).save(expectedUserInfo);
+		System.out.println("Validating null or empty parameters...");
 		String result = userAccountController.updateInfoUserBy(userId, photoURL, favoritesMusics, gender, phone,
 				instaURL, twitterURL, favoritesThings);
+		System.out.println("Validation result: " + result);
 		assertEquals("ATUALIZADO", result);
 		verify(userInfoRepo, times(1)).save(expectedUserInfo);
 	}
@@ -185,6 +193,7 @@ class UserAccountControllerUpdateInfoUserByTest {
 		User_Info expectedUserInfo = new User_Info(userId, photoURL, favoritesMusics, gender, phone, instaURL,
 				twitterURL, favoritesThings);
 		doNothing().when(userInfoRepo).save(expectedUserInfo);
+		System.out.println("Verifying correct User_Info object creation...");
 		userAccountController.updateInfoUserBy(userId, photoURL, favoritesMusics, gender, phone, instaURL, twitterURL,
 				favoritesThings);
 		verify(userInfoRepo, times(1)).save(expectedUserInfo);
@@ -204,8 +213,10 @@ class UserAccountControllerUpdateInfoUserByTest {
 		User_Info expectedUserInfo = new User_Info(userId, photoURL, favoritesMusics, gender, phone, instaURL,
 				twitterURL, favoritesThings);
 		doNothing().when(userInfoRepo).save(expectedUserInfo);
+		System.out.println("Testing with maximum length strings...");
 		String result = userAccountController.updateInfoUserBy(userId, photoURL, favoritesMusics, gender, phone,
 				instaURL, twitterURL, favoritesThings);
+		System.out.println("Test result: " + result);
 		assertEquals("ATUALIZADO", result);
 		verify(userInfoRepo, times(1)).save(expectedUserInfo);
 	}
@@ -224,8 +235,10 @@ class UserAccountControllerUpdateInfoUserByTest {
 		User_Info expectedUserInfo = new User_Info(userId, photoURL, favoritesMusics, gender, phone, instaURL,
 				twitterURL, favoritesThings);
 		doNothing().when(userInfoRepo).save(expectedUserInfo);
+		System.out.println("Testing with special characters in parameters...");
 		String result = userAccountController.updateInfoUserBy(userId, photoURL, favoritesMusics, gender, phone,
 				instaURL, twitterURL, favoritesThings);
+		System.out.println("Test result: " + result);
 		assertEquals("ATUALIZADO", result);
 		verify(userInfoRepo, times(1)).save(expectedUserInfo);
 	}
