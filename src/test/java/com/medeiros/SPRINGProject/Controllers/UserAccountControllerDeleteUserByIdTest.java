@@ -68,13 +68,14 @@ Validation:
 
 
 roost_feedback [18/07/2025, 11:11:52 AM]:Add\smore\scomments\sand\simprove\scoverage\sreport
+
+roost_feedback [18/07/2025, 11:16:30 AM]:hbcsbcjnscjk
 */
 
 // ********RoostGPT********
 
 package com.medeiros.SPRINGProject.Controllers;
 
-import com.medeiros.SPRINGProject.Models.User_Credentials;
 import com.medeiros.SPRINGProject.Models.UserAccRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -84,95 +85,75 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.web.bind.annotation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import com.medeiros.SPRINGProject.Models.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import java.time.LocalDateTime;
-import java.util.Objects;
-import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 public class UserAccountControllerDeleteUserByIdTest {
 
-	@Mock
-	private UserAccRepository userAccRepo;
+    @Mock
+    private UserAccRepository userAccRepo;
 
-	@InjectMocks
-	private UserAccountController userAccountController;
+    @InjectMocks
+    private UserAccountController userAccountController;
 
-	@BeforeEach
-	public void setUp() {
-		// Setup mock behavior if needed
-	}
+    @BeforeEach
+    public void setUp() {
+        // Setup mock behavior if needed
+    }
 
-	@Test
-	@Tag("valid")
-	public void deleteUserByIdSuccessfully() {
-		// Arrange
-		int validUserId = 1; 
-		Mockito.doNothing().when(userAccRepo).deleteById(validUserId);
-		// Act
-		String result = userAccountController.deleteUserById(String.valueOf(validUserId));
-		// Assert
-		assertEquals("Conta Deletada", result);
-	}
+    @Test
+    @Tag("valid")
+    public void deleteUserByIdSuccessfully() {
+        int validUserId = 1; 
+        Mockito.doNothing().when(userAccRepo).deleteById(validUserId);
+        String result = userAccountController.deleteUserById(String.valueOf(validUserId));
+        assertEquals("Conta Deletada", result);
+    }
 
-	@Test
-	@Tag("invalid")
-	public void deleteUserByIdWithInvalidIdFormat() {
-		// Arrange
-		String invalidId = "abc";
-		// Act & Assert
-		assertThrows(NumberFormatException.class, () -> {
-			userAccountController.deleteUserById(invalidId);
-		});
-	}
+    @Test
+    @Tag("invalid")
+    public void deleteUserByIdWithInvalidIdFormat() {
+        String invalidId = "abc";
+        assertThrows(NumberFormatException.class, () -> {
+            userAccountController.deleteUserById(invalidId);
+        });
+    }
 
-	@Test
-	@Tag("boundary")
-	public void deleteUserByIdNonExistentUser() {
-		// Arrange
-		int nonExistentUserId = 999; 
-		Mockito.doNothing().when(userAccRepo).deleteById(nonExistentUserId);
-		// Act
-		String result = userAccountController.deleteUserById(String.valueOf(nonExistentUserId));
-		// Assert
-		assertEquals("Conta Deletada", result);
-	}
+    @Test
+    @Tag("boundary")
+    public void deleteUserByIdNonExistentUser() {
+        int nonExistentUserId = 999; 
+        Mockito.doNothing().when(userAccRepo).deleteById(nonExistentUserId);
+        String result = userAccountController.deleteUserById(String.valueOf(nonExistentUserId));
+        assertEquals("Conta Deletada", result);
+    }
 
-	@Test
-	@Tag("invalid")
-	public void deleteUserByIdWithNullId() {
-		// Arrange
-		String nullId = null;
-		// Act & Assert
-		assertThrows(NullPointerException.class, () -> {
-			userAccountController.deleteUserById(nullId);
-		});
-	}
+    @Test
+    @Tag("invalid")
+    public void deleteUserByIdWithNullId() {
+        String nullId = null;
+        assertThrows(NullPointerException.class, () -> {
+            userAccountController.deleteUserById(nullId);
+        });
+    }
 
-	@Test
-	@Tag("invalid")
-	public void deleteUserByIdWithEmptyStringId() {
-		// Arrange
-		String emptyId = "";
-		// Act & Assert
-		assertThrows(NumberFormatException.class, () -> {
-			userAccountController.deleteUserById(emptyId);
-		});
-	}
+    @Test
+    @Tag("invalid")
+    public void deleteUserByIdWithEmptyStringId() {
+        String emptyId = "";
+        assertThrows(NumberFormatException.class, () -> {
+            userAccountController.deleteUserById(emptyId);
+        });
+    }
 
-	@Test
-	@Tag("exception")
-	public void deleteUserByIdThrowsException() {
-		// Arrange
-		int userId = 2;
-		Mockito.doThrow(new RuntimeException("Database error")).when(userAccRepo).deleteById(userId);
-		// Act & Assert
-		assertThrows(RuntimeException.class, () -> {
-			userAccountController.deleteUserById(String.valueOf(userId));
-		});
-	}
+    @Test
+    @Tag("exception")
+    public void deleteUserByIdThrowsException() {
+        int userId = 2;
+        Mockito.doThrow(new RuntimeException("Database error")).when(userAccRepo).deleteById(userId);
+        assertThrows(RuntimeException.class, () -> {
+            userAccountController.deleteUserById(String.valueOf(userId));
+        });
+    }
 }
