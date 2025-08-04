@@ -1,0 +1,51 @@
+[
+  {
+    "cluster_id": "cluster-123",
+    "topic_name": "topic-abc",
+    "partition_id": 1,
+    "statusCode": 200,
+    "scenario": "The partition"
+  },
+  {
+    "cluster_id": "cluster-456",
+    "topic_name": "topic-def",
+    "partition_id": 2,
+    "statusCode": 400,
+    "scenario": "Indicates a bad request error. It could be caused by an unexpected request body format or other forms of request validation failure."
+  },
+  {
+    "cluster_id": "cluster-789",
+    "topic_name": "topic-ghi",
+    "partition_id": 3,
+    "statusCode": 401,
+    "scenario": "Indicates a client authentication error. Kafka authentication failures will contain error code 40101 in the response body."
+  },
+  {
+    "cluster_id": "cluster-012",
+    "topic_name": "topic-jkl",
+    "partition_id": 4,
+    "statusCode": 403,
+    "scenario": "Indicates a client authorization error. Kafka authorization failures will contain error code 40301 in the response body."
+  },
+  {
+    "cluster_id": "cluster-345",
+    "topic_name": "topic-mno",
+    "partition_id": 5,
+    "statusCode": 404,
+    "scenario": "Indicates attempted access to an unreachable or non-existing resource like e.g. an unknown topic or partition. GET requests to endpoints not allowed in the accesslists will also result in this response."
+  },
+  {
+    "cluster_id": "cluster-678",
+    "topic_name": "topic-pqr",
+    "partition_id": 6,
+    "statusCode": 429,
+    "scenario": "Indicates that a rate limit threshold has been reached, and the client should retry again later."
+  },
+  {
+    "cluster_id": "cluster-901",
+    "topic_name": "topic-stu",
+    "partition_id": 7,
+    "statusCode": 500,
+    "scenario": "A server-side problem that might not be addressable from the client side. Retriable Kafka errors will contain error code 50003 in the response body."
+  }
+]

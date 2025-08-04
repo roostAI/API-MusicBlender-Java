@@ -1,0 +1,32 @@
+[
+  {
+    "cluster_id": "cluster-1",
+    "statusCode": 200,
+    "scenario": "The list of topics."
+  },
+  {
+    "cluster_id": "cluster-2",
+    "statusCode": 400,
+    "scenario": "Indicates a bad request error. It could be caused by an unexpected request body format or other forms of request validation failure."
+  },
+  {
+    "cluster_id": "cluster-3",
+    "statusCode": 401,
+    "scenario": "Indicates a client authentication error. Kafka authentication failures will contain error code 40101 in the response body."
+  },
+  {
+    "cluster_id": "cluster-4",
+    "statusCode": 403,
+    "scenario": "Indicates a client authorization error. Kafka authorization failures will contain error code 40301 in the response body."
+  },
+  {
+    "cluster_id": "cluster-5",
+    "statusCode": 429,
+    "scenario": "Indicates that a rate limit threshold has been reached, and the client should retry again later."
+  },
+  {
+    "cluster_id": "cluster-6",
+    "statusCode": 500,
+    "scenario": "A server-side problem that might not be addressable from the client side. Retriable Kafka errors will contain error code 50003 in the response body."
+  }
+]
