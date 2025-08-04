@@ -1,0 +1,72 @@
+[
+  {
+    "cluster_id": "cluster-123",
+    "topic_name": "topic-abc",
+    "partition_id": 1,
+    "headers_0.name": "header1",
+    "headers_0.value": "value1",
+    "headers_1.name": "header2",
+    "headers_1.value": "value2",
+    "key.type": "string",
+    "value.type": "string",
+    "timestamp": "2023-10-01T12:34:56Z",
+    "statusCode": 200,
+    "scenario": "The response containing a delivery report for a record produced to a topic. In streaming mode, for each record sent, a separate delivery report will be returned, in the same order, each with its own error_code."
+  },
+  {
+    "cluster_id": "cluster-456",
+    "topic_name": "topic-def",
+    "partition_id": 2,
+    "headers_0.name": "header3",
+    "headers_0.value": "value3",
+    "headers_1.name": "header4",
+    "headers_1.value": "value4",
+    "key.type": "string",
+    "value.type": "string",
+    "timestamp": "2023-10-02T12:34:56Z",
+    "statusCode": 400,
+    "scenario": "Indicates a bad request error. It could be caused by an unexpected request body format or other forms of request validation failure."
+  },
+  {
+    "cluster_id": "cluster-789",
+    "topic_name": "topic-ghi",
+    "partition_id": 3,
+    "headers_0.name": "header5",
+    "headers_0.value": "value5",
+    "headers_1.name": "header6",
+    "headers_1.value": "value6",
+    "key.type": "string",
+    "value.type": "string",
+    "timestamp": "2023-10-03T12:34:56Z",
+    "statusCode": 401,
+    "scenario": "Indicates a client authentication error. Kafka authentication failures will contain error code 40101 in the response body."
+  },
+  {
+    "cluster_id": "cluster-101",
+    "topic_name": "topic-jkl",
+    "partition_id": 4,
+    "headers_0.name": "header7",
+    "headers_0.value": "value7",
+    "headers_1.name": "header8",
+    "headers_1.value": "value8",
+    "key.type": "string",
+    "value.type": "string",
+    "timestamp": "2023-10-04T12:34:56Z",
+    "statusCode": 403,
+    "scenario": "Indicates a client authorization error. Kafka authorization failures will contain error code 40301 in the response body."
+  },
+  {
+    "cluster_id": "cluster-112",
+    "topic_name": "topic-mno",
+    "partition_id": 5,
+    "headers_0.name": "header9",
+    "headers_0.value": "value9",
+    "headers_1.name": "header10",
+    "headers_1.value": "value10",
+    "key.type": "string",
+    "value.type": "string",
+    "timestamp": "2023-10-05T12:34:56Z",
+    "statusCode": 404,
+    "scenario": "Indicates attempted access to an unreachable or non-existing resource like e.g. an unknown topic or partition. GET requests to endpoints not allowed in the accesslists will also result in this response."
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "include_authorized_operations": [
+      "read",
+      "write"
+    ],
+    "cluster_id": "cluster-123",
+    "topic_name": "topic-123",
+    "statusCode": 200,
+    "scenario": "The topic."
+  },
+  {
+    "include_authorized_operations": [
+      "read",
+      "write"
+    ],
+    "cluster_id": "cluster-456",
+    "topic_name": "topic-456",
+    "statusCode": 400,
+    "scenario": "Indicates a bad request error. It could be caused by an unexpected request body format or other forms of request validation failure."
+  },
+  {
+    "include_authorized_operations": [
+      "read",
+      "write"
+    ],
+    "cluster_id": "cluster-789",
+    "topic_name": "topic-789",
+    "statusCode": 401,
+    "scenario": "Indicates a client authentication error. Kafka authentication failures will contain error code 40101 in the response body."
+  },
+  {
+    "include_authorized_operations": [
+      "read",
+      "write"
+    ],
+    "cluster_id": "cluster-101",
+    "topic_name": "topic-101",
+    "statusCode": 403,
+    "scenario": "Indicates a client authorization error. Kafka authorization failures will contain error code 40301 in the response body."
+  },
+  {
+    "include_authorized_operations": [
+      "read",
+      "write"
+    ],
+    "cluster_id": "cluster-102",
+    "topic_name": "topic-102",
+    "statusCode": 404,
+    "scenario": "Indicates attempted access to an unreachable or non-existing resource like e.g. an unknown topic or partition. GET requests to endpoints not allowed in the accesslists will also result in this response."
+  }
+]

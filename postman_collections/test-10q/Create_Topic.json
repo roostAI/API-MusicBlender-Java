@@ -1,0 +1,67 @@
+[
+  {
+    "cluster_id": "cluster-1234",
+    "topic_name_*string": "topic-1",
+    "partitions_count_*integer": 3,
+    "replication_factor_*integer": 2,
+    "configs_0.name_*string": "cleanup.policy",
+    "configs_0.value_*string": "delete",
+    "configs_1.name_*string": "retention.ms",
+    "configs_1.value_*string": "86400000",
+    "validate_only_*boolean": false,
+    "statusCode": 200,
+    "scenario": "The created topic."
+  },
+  {
+    "cluster_id": "cluster-5678",
+    "topic_name_*string": "topic-2",
+    "partitions_count_*integer": 5,
+    "replication_factor_*integer": 3,
+    "configs_0.name_*string": "compression.type",
+    "configs_0.value_*string": "lz4",
+    "configs_1.name_*string": "min.insync.replicas",
+    "configs_1.value_*string": "2",
+    "validate_only_*boolean": true,
+    "statusCode": 201,
+    "scenario": "The created topic."
+  },
+  {
+    "cluster_id": "cluster-91011",
+    "topic_name_*string": "topic-3",
+    "partitions_count_*integer": 4,
+    "replication_factor_*integer": 1,
+    "configs_0.name_*string": "segment.ms",
+    "configs_0.value_*string": "604800000",
+    "configs_1.name_*string": "max.message.bytes",
+    "configs_1.value_*string": "1000012",
+    "validate_only_*boolean": false,
+    "statusCode": 400,
+    "scenario": "Indicates a bad request error. It could be caused by an unexpected request body format or other forms of request validation failure."
+  },
+  {
+    "cluster_id": "cluster-121314",
+    "topic_name_*string": "topic-4",
+    "partitions_count_*integer": 6,
+    "replication_factor_*integer": 4,
+    "configs_0.name_*string": "delete.retention.ms",
+    "configs_0.value_*string": "86400000",
+    "configs_1.name_*string": "file.delete.delay.ms",
+    "configs_1.value_*string": "60000",
+    "validate_only_*boolean": true,
+    "statusCode": 401,
+    "scenario": "Indicates a client authentication error. Kafka authentication failures will contain error code 40101 in the response body."
+  },
+  {
+    "cluster_id": "cluster-151617",
+    "topic_name_*string": "topic-5",
+    "partitions_count_*integer": 7,
+    "replication_factor_*integer": 5,
+    "configs_0.name_*string": "flush.ms",
+    "configs_0.value_*string": "9223372036854775807",
+    "configs_1.name_*string": "flush.messages",
+    "configs_1.value_*string": "9223372036854775807",
+    "validate_only_*boolean": false,
+    "statusCode": 403,
+    "scenario": "Indicates a client authorization error. Kafka authorization failures will contain error code 40301 in the response body."
+  }
+]
