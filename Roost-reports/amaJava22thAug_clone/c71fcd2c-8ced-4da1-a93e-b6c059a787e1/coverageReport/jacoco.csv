@@ -9,12 +9,12 @@ SPRINGProject,com.medeiros.SPRINGProject.Controllers,UserAccountController,18,55
 SPRINGProject,com.medeiros.SPRINGProject.Controllers,MarketController,11,38,0,0,3,7,2,2,2,2
 SPRINGProject,com.medeiros.SPRINGProject.Controllers,AppController,104,15,0,0,21,4,4,2,4,2
 SPRINGProject,com.medeiros.SPRINGProject.Security,JwtUtil,92,17,7,1,23,7,6,3,2,3
-SPRINGProject,com.medeiros.SPRINGProject.Models,CommentsModel,16,38,0,0,7,17,3,11,3,11
+SPRINGProject,com.medeiros.SPRINGProject.Models,CommentsModel,9,45,0,0,4,20,1,13,1,13
 SPRINGProject,com.medeiros.SPRINGProject.Models,User_Credentials,0,43,0,0,0,19,0,10,0,10
-SPRINGProject,com.medeiros.SPRINGProject.Models,MusicModel,35,39,0,0,15,17,10,8,10,8
-SPRINGProject,com.medeiros.SPRINGProject.Models,ProductModel,52,18,0,0,23,7,15,1,15,1
+SPRINGProject,com.medeiros.SPRINGProject.Models,MusicModel,0,74,0,0,0,32,0,18,0,18
+SPRINGProject,com.medeiros.SPRINGProject.Models,ProductModel,0,70,0,0,0,30,0,16,0,16
 SPRINGProject,com.medeiros.SPRINGProject.Models,ForumChatModel,0,43,0,0,0,19,0,10,0,10
-SPRINGProject,com.medeiros.SPRINGProject.Models,User_Info,59,27,0,0,26,10,17,1,17,1
+SPRINGProject,com.medeiros.SPRINGProject.Models,User_Info,0,86,0,0,0,36,0,18,0,18
 SPRINGProject,com.medeiros.SPRINGProject.Models,LogModel,0,45,0,0,0,20,0,11,0,11
 SPRINGProject,com.medeiros.SPRINGProject.Models,ForumIndexModel,4,49,0,0,2,21,1,11,1,11
 SPRINGProject,com.medeiros.SPRINGProject.utils,hashMapFunctions.new Comparator() {...},0,11,0,0,0,2,0,2,0,2
