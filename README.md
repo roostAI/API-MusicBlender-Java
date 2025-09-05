@@ -1,77 +1,66 @@
+# Playwright Test Suite
 
-# TuneBlendr Project API
+## RoostGpt Generated playwright test
 
-The music platform API is a backend API built using Java Spring, Spring Web, and Dev Tools. The API provides a simple backend for a music platform, allowing for CRUD operations on songs and artists. The API has endpoints for retrieving a list of all songs or artists, retrieving a specific song or artist by ID, creating a new song or artist, updating a specific song or artist by ID, and deleting a specific song or artist by ID.
+This project contains Playwright-based automated tests located in the `playwright_tests` directory.
 
-The API can be easily tested using Postman or any other HTTP client that supports sending JSON requests. The API accepts requests in JSON format and returns responses in JSON format as well.
+## 📁 Directory Structure
 
-This API provides a foundation for building a more complex music platform, allowing for the creation and management of songs and artists. It can be extended to include additional functionality, such as user authentication and authorization, playlists, and more.
+```bash
+ playwright_tests/
+   ├── scenarios/
+   ├── tests/
+   ├── package.json
+   ├── playwright.config.js
+```
 
-## Diagram ( v1.0 )
+## 🧩 Prerequisites
 
-![alt text](https://github.com/medeirosdev/API-MusicBlender-Java/blob/master/tumblr.png)
-Não está pronto ainda
+Make sure you have the following installed:
 
-## Running the API
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- npm (comes with Node.js)
 
-To run the API, you will need Java 8 or higher installed on your machine. Once Java is installed, follow these steps:
+## 📦 Setup
 
-    Clone the repository to your local machine.
-    Open the project in your preferred IDE.
-    Build the project using the provided build script.
-    Run the project using the provided run script.
-    The API will be accessible at http://localhost:8080/
+1. Navigate to the Playwright tests directory:
 
+2. Install dependencies:
 
+   ```bash
+   npm install
+   ```
 
+## 🚀 Running Tests
 
+To execute all Playwright tests:
 
-# Endpoints
+```bash
+npx playwright test
+```
 
-## App Routes
-- GET/app/feed
-- POST/app/like/{id}
-- POST/app/comment/{id}
-- POST/app/createComment/{id}
-- GET/app/getComments/{MusicId}
+You can also run a specific test file:
 
-## Log
-- GET/log/all
+```bash
+npx playwright test tests/example.spec.js
+```
 
-## Music Routes
-- POST/music/create/{userId}
-- DELETE/music/delete/{id}
-- GET/music/findMusicBy/{id}
-- POST/music/update/{id}
+> Replace `example.spec.js` with the actual test file you want to run.
 
-## UserCredentials Routes
-- POST/user/create
-- GET/user/findUser
-- DELETE/user/delete
-- POST/user/update
+## 📂 Test Reports
 
-## UserInfo Routes
-- POST/user/createInfo/{userId}
+After the tests run, Playwright will generate a report. To view the report:
 
-## Music MarketPlace
-- POST/product/create/{userid}
-- GET/product/MarketFeed
-- DELETE/product/delete/{id}
+```bash
+npx playwright show-report
+```
 
-## Auth Routes
-- GET/auth/login
-- POST/auth/register
+## ⚙️ Configuration
 
-## Forum Routes
-- POST/forum/create/{userId}
-- POST/message/{forumId}/{userId}
-- GET/forum/showMessages
+Test configuration is defined in `playwright.config.js`.
 
+You can modify settings like test directory, timeout etc., in this file.
 
-## Testing the API
+## 📘 More Info
 
-To test the API, you can use Postman or any other HTTP client that supports sending JSON requests. You can use the provided documentation to see the available endpoints and their parameters.
-
-## Conclusion
-
-This API provides a simple backend for a music platform. It is built using Java Spring, and allows for CRUD operations on songs and artists. It can be easily extended to add additional functionality as needed.
+For detailed Playwright documentation, visit: [https://playwright.dev](https://playwright.dev)
