@@ -1,0 +1,236 @@
+[
+  {
+    "q": "New York",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with city name as query parameter"
+  },
+  {
+    "q": "10001",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with US Zipcode as query parameter"
+  },
+  {
+    "q": "SW1A 1AA",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with UK Postcode as query parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Latitude/Longitude coordinates"
+  },
+  {
+    "q": "8.8.8.8",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with IP address as query parameter"
+  },
+  {
+    "q": "Paris",
+    "lang": "fr",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with optional lang parameter for French"
+  },
+  {
+    "q": "Berlin",
+    "lang": "de",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with optional lang parameter for German"
+  },
+  {
+    "q": "Tokyo",
+    "lang": "ja",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with optional lang parameter for Japanese"
+  },
+  {
+    "q": "M5V 3L9",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Canada Postal code"
+  },
+  {
+    "q": "auto:ip",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with auto:ip to detect location automatically"
+  },
+  {
+    "q": "-33.87,151.21",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with negative latitude (Southern hemisphere - Sydney)"
+  },
+  {
+    "q": "51.51,-0.13",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with negative longitude (Western hemisphere - London)"
+  },
+  {
+    "q": "Los Angeles",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with city name containing spaces"
+  },
+  {
+    "q": "NEW YORK",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test if city name search is case insensitive"
+  },
+  {
+    "q": "London",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify response contains all expected location and current weather fields"
+  },
+  {
+    "q": "Sydney",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify numeric fields return correct data types"
+  },
+  {
+    "q": "Beijing",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify air quality data is present in response when available"
+  },
+  {
+    "q": "Munich",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with Unicode characters in city name"
+  },
+  {
+    "q": "Paris",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify is_day field returns valid integer value (0 or 1)"
+  },
+  {
+    "q": "",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty q parameter value - error code 1003"
+  },
+  {
+    "q": "InvalidCityXYZ123",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent location - error code 1006"
+  },
+  {
+    "q": "abc,xyz",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed latitude/longitude coordinates - error code 1006"
+  },
+  {
+    "q": "91.0,-74.01",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude value out of valid range (>90)"
+  },
+  {
+    "q": "-91.0,-74.01",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude value out of valid range (<-90)"
+  },
+  {
+    "q": "40.71,-181.0",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude value out of valid range (>180)"
+  },
+  {
+    "q": "40.71,181.0",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude value out of valid range (<-180)"
+  },
+  {
+    "q": "   ",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace only in q parameter"
+  },
+  {
+    "q": "192.168.1.1",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with private IP address - error code 1006"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters in q parameter for XSS prevention"
+  },
+  {
+    "q": "1; DROP TABLE users;--",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in q parameter"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with extremely long q parameter value (1000+ characters)"
+  },
+  {
+    "q": "null",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with literal 'null' string for q parameter"
+  },
+  {
+    "q": "London",
+    "lang": "invalid_lang",
+    "expected_statusCode": 200,
+    "scenario": "Test request with invalid language code - should return default language"
+  },
+  {
+    "q": "Paris",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with empty lang parameter - should use default language"
+  },
+  {
+    "q": "2001:4860:4860::8888",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with IPv6 address format"
+  },
+  {
+    "q": "0.0.0.0",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid IP address 0.0.0.0"
+  },
+  {
+    "q": "255.255.255.255",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with broadcast IP address"
+  },
+  {
+    "q": "127.0.0.1",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with localhost IP address"
+  },
+  {
+    "q": "0,0",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with coordinates at origin (0,0) - Gulf of Guinea"
+  }
+]

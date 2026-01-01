@@ -1,0 +1,152 @@
+[
+  {
+    "q": "185.249.71.82",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid IPv4 address lookup returns successful response with geolocation data"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of well-known Google DNS IP returns valid geolocation data"
+  },
+  {
+    "q": "1.1.1.1",
+    "expected_statusCode": 200,
+    "scenario": "Test IPv4 address returns type field with value 'ipv4'"
+  },
+  {
+    "q": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid IPv6 address lookup returns successful response with type 'ipv6'"
+  },
+  {
+    "q": "192.168.1.1",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of private IP address returns appropriate response"
+  },
+  {
+    "q": "127.0.0.1",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of localhost IP address returns appropriate response"
+  },
+  {
+    "q": "172.217.14.206",
+    "expected_statusCode": 200,
+    "scenario": "Test valid Google server IP returns complete geolocation data with all expected fields"
+  },
+  {
+    "q": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty 'q' parameter returns 400 error with code 1003"
+  },
+  {
+    "q": "999.999.999.999",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid IP format returns 400 error with code 1006"
+  },
+  {
+    "q": "abc.def.ghi.jkl",
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed non-numeric IP address returns 400 error"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "expected_statusCode": 400,
+    "scenario": "Test request with XSS injection attempt in 'q' parameter returns 400 error"
+  },
+  {
+    "q": "1.1.1.1; DROP TABLE users;--",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in 'q' parameter returns 400 error"
+  },
+  {
+    "q": "12345678",
+    "expected_statusCode": 400,
+    "scenario": "Test request with numeric only input without dots returns 400 error with code 1006"
+  },
+  {
+    "q": "8.8. 8.8",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace in IP address returns 400 error"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long input string (1000+ chars) returns 400 error"
+  },
+  {
+    "q": "null",
+    "expected_statusCode": 400,
+    "scenario": "Test request with literal 'null' string in 'q' parameter returns 400 error"
+  },
+  {
+    "q": "192.168",
+    "expected_statusCode": 400,
+    "scenario": "Test request with partial IP address returns 400 error with code 1006"
+  },
+  {
+    "q": "🔥💻🌐",
+    "expected_statusCode": 400,
+    "scenario": "Test request with unicode emoji characters in 'q' parameter returns 400 error"
+  },
+  {
+    "q": "256.256.256.256",
+    "expected_statusCode": 400,
+    "scenario": "Test request with IP octets exceeding 255 returns 400 error"
+  },
+  {
+    "q": "-1.0.0.1",
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative IP octet returns 400 error"
+  },
+  {
+    "q": "8.8.8.8.8",
+    "expected_statusCode": 400,
+    "scenario": "Test request with IP address having extra octet returns 400 error"
+  },
+  {
+    "q": "   ",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only 'q' parameter returns 400 error"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 401,
+    "scenario": "Test request without API key returns 401 unauthorized error with code 1002"
+  },
+  {
+    "q": "1.1.1.1",
+    "expected_statusCode": 401,
+    "scenario": "Test request with invalid API key returns 401 unauthorized error with code 2006"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 403,
+    "scenario": "Test request with disabled API key returns 403 forbidden error with code 2008"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 403,
+    "scenario": "Test request with API key lacking resource access returns 403 forbidden error with code 2009"
+  },
+  {
+    "q": "104.16.132.229",
+    "expected_statusCode": 200,
+    "scenario": "Test valid Cloudflare IP returns geolocation data with continent and country info"
+  },
+  {
+    "q": "2606:4700:4700::1111",
+    "expected_statusCode": 200,
+    "scenario": "Test valid Cloudflare IPv6 DNS address returns successful response"
+  },
+  {
+    "q": "0.0.0.0",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of zero IP address returns appropriate response"
+  },
+  {
+    "q": "255.255.255.255",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of broadcast IP address returns appropriate response"
+  }
+]

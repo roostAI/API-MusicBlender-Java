@@ -1,0 +1,177 @@
+[
+  {
+    "q": "London",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with a city name as query parameter - should return matching cities"
+  },
+  {
+    "q": "10001",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with US Zipcode as query parameter - should return locations for New York area"
+  },
+  {
+    "q": "SW1A1AA",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with UK Postcode as query parameter - should return London locations"
+  },
+  {
+    "q": "51.52,-0.12",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Latitude/Longitude as query parameter - should return nearby locations"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with IP address as query parameter - should return location for IP"
+  },
+  {
+    "q": "Paris",
+    "expected_statusCode": 200,
+    "scenario": "Test valid city name Paris - should return array of location objects with required fields"
+  },
+  {
+    "q": "New York",
+    "expected_statusCode": 200,
+    "scenario": "Test request with space in city name - should handle URL encoding correctly"
+  },
+  {
+    "q": "Lond",
+    "expected_statusCode": 200,
+    "scenario": "Test autocomplete functionality with partial city name - should return matching locations"
+  },
+  {
+    "q": "M5V3L9",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Canada Postal code as query parameter"
+  },
+  {
+    "q": "-33.87,151.21",
+    "expected_statusCode": 200,
+    "scenario": "Test request with valid negative latitude and longitude for Sydney"
+  },
+  {
+    "q": "München",
+    "expected_statusCode": 200,
+    "scenario": "Test request with unicode characters in city name - should handle international characters"
+  },
+  {
+    "q": "Tokyo",
+    "expected_statusCode": 200,
+    "scenario": "Test valid international city name - should return Japanese location data"
+  },
+  {
+    "q": "12345",
+    "expected_statusCode": 200,
+    "scenario": "Test numeric-only query that could be a valid US zipcode"
+  },
+  {
+    "q": "A",
+    "expected_statusCode": 200,
+    "scenario": "Test single character query parameter - should return matching locations or empty array"
+  },
+  {
+    "q": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty q parameter value - should return error code 1003"
+  },
+  {
+    "q": "xyznonexistentcity123456",
+    "expected_statusCode": 400,
+    "scenario": "Test request with query that matches no location - should return error code 1006"
+  },
+  {
+    "q": "invalid,coords",
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed latitude/longitude format - should return validation error"
+  },
+  {
+    "q": "999.99,-0.12",
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude value out of valid range - should return error"
+  },
+  {
+    "q": "999.999.999.999",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid IP address format - should return error code 1006"
+  },
+  {
+    "q": "   ",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only query parameter - should return appropriate error"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long query parameter value - should handle gracefully"
+  },
+  {
+    "q": "-91.00,0.00",
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude below -90 degrees - should return validation error"
+  },
+  {
+    "q": "0.00,181.00",
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude above 180 degrees - should return validation error"
+  },
+  {
+    "q": "!@#$%^&*()",
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters only - should return no location found error"
+  },
+  {
+    "q": "London",
+    "expected_statusCode": 401,
+    "scenario": "Test request without API key authentication - should return error code 1002"
+  },
+  {
+    "q": "Paris",
+    "expected_statusCode": 401,
+    "scenario": "Test request with invalid API key - should return error code 2006"
+  },
+  {
+    "q": "Berlin",
+    "expected_statusCode": 401,
+    "scenario": "Test request with malformed API key format - should return authentication error"
+  },
+  {
+    "q": "Tokyo",
+    "expected_statusCode": 401,
+    "scenario": "Test request with empty API key value - should return error code 1002"
+  },
+  {
+    "q": "London",
+    "expected_statusCode": 403,
+    "scenario": "Test request with disabled API key - should return error code 2008"
+  },
+  {
+    "q": "Sydney",
+    "expected_statusCode": 403,
+    "scenario": "Test request with API key lacking resource access - should return error code 2009"
+  },
+  {
+    "q": "90.00,180.00",
+    "expected_statusCode": 200,
+    "scenario": "Test request with maximum valid latitude and longitude boundary values"
+  },
+  {
+    "q": "-90.00,-180.00",
+    "expected_statusCode": 200,
+    "scenario": "Test request with minimum valid latitude and longitude boundary values"
+  },
+  {
+    "q": "0.00,0.00",
+    "expected_statusCode": 200,
+    "scenario": "Test request with zero coordinates - should return location near null island"
+  },
+  {
+    "q": "San Francisco",
+    "expected_statusCode": 200,
+    "scenario": "Test multi-word city name with space - should return California locations"
+  },
+  {
+    "q": "Los Angeles",
+    "expected_statusCode": 200,
+    "scenario": "Test another multi-word US city name - should return matching locations"
+  }
+]
