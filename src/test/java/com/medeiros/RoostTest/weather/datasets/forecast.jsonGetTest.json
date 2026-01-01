@@ -1,0 +1,448 @@
+[
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid forecast request using city name and required days parameter"
+  },
+  {
+    "q": "10001",
+    "days": 7,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid forecast request using US zipcode (NYC)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid forecast request using latitude/longitude coordinates"
+  },
+  {
+    "q": "8.8.8.8",
+    "days": 2,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid forecast request using IP address"
+  },
+  {
+    "q": "SW1A 1AA",
+    "days": 5,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid forecast request using UK postcode"
+  },
+  {
+    "q": "Paris",
+    "days": 14,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with maximum allowed days (14)"
+  },
+  {
+    "q": "Tokyo",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with minimum allowed days (1)"
+  },
+  {
+    "q": "New York",
+    "days": 3,
+    "alerts": "yes",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with alerts parameter enabled"
+  },
+  {
+    "q": "New York",
+    "days": 3,
+    "alerts": "no",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with alerts parameter disabled"
+  },
+  {
+    "q": "Beijing",
+    "days": 2,
+    "aqi": "yes",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with air quality data enabled"
+  },
+  {
+    "q": "Beijing",
+    "days": 2,
+    "aqi": "no",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with air quality data disabled"
+  },
+  {
+    "q": "Sydney",
+    "days": 7,
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with specific date parameter"
+  },
+  {
+    "q": "Berlin",
+    "days": 5,
+    "unixdt": 1705363200,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with Unix timestamp parameter"
+  },
+  {
+    "q": "Miami",
+    "days": 3,
+    "hour": 17,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with specific hour filter (5 PM)"
+  },
+  {
+    "q": "Madrid",
+    "days": 2,
+    "lang": "es",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with non-English language (Spanish)"
+  },
+  {
+    "q": "London",
+    "days": 1,
+    "hour": 0,
+    "expected_statusCode": 200,
+    "scenario": "Test request with hour=0 for midnight"
+  },
+  {
+    "q": "London",
+    "days": 1,
+    "hour": 23,
+    "expected_statusCode": 200,
+    "scenario": "Test request with hour=23 for end of day"
+  },
+  {
+    "q": "London",
+    "days": 7,
+    "hour": 12,
+    "lang": "fr",
+    "alerts": "yes",
+    "aqi": "yes",
+    "expected_statusCode": 200,
+    "scenario": "Test request with all optional parameters combined"
+  },
+  {
+    "q": "M5V 3L9",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test request with Canadian postal code"
+  },
+  {
+    "q": "LONDON",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test request with uppercase city name for case sensitivity"
+  },
+  {
+    "q": "München",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test request with Unicode characters in location query"
+  },
+  {
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request without required 'q' parameter - error code 1003"
+  },
+  {
+    "q": "",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty 'q' parameter value"
+  },
+  {
+    "q": "xyznonexistentcity123",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent location - error code 1006"
+  },
+  {
+    "q": "London",
+    "days": 15,
+    "expected_statusCode": 400,
+    "scenario": "Test request with days parameter exceeding maximum (15)"
+  },
+  {
+    "q": "London",
+    "days": 0,
+    "expected_statusCode": 400,
+    "scenario": "Test request with days parameter below minimum (0)"
+  },
+  {
+    "q": "London",
+    "days": -5,
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative days parameter"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "dt": "22-07-2024",
+    "expected_statusCode": 400,
+    "scenario": "Test request with incorrectly formatted date parameter"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "dt": "2020-01-01",
+    "expected_statusCode": 400,
+    "scenario": "Test request with date parameter in the past"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "dt": "2024-13-45",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid date value"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "hour": 25,
+    "expected_statusCode": 400,
+    "scenario": "Test request with hour parameter outside 0-23 range"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "hour": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative hour parameter"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters (XSS attempt) in query"
+  },
+  {
+    "q": "London; DROP TABLE users;--",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in location query"
+  },
+  {
+    "q": "   ",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only location query"
+  },
+  {
+    "q": "999.999.999.999",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid IP address format"
+  },
+  {
+    "q": "91.0,-181.0",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid latitude/longitude (out of range)"
+  },
+  {
+    "q": "40.71 -74.01",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude/longitude missing comma separator"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "unixdt": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid Unix timestamp (negative)"
+  },
+  {
+    "q": "London",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required 'days' parameter"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 401,
+    "scenario": "Test request without API key authentication - error code 1002"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 401,
+    "scenario": "Test request with invalid API key - error code 2006"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 401,
+    "scenario": "Test request with empty API key"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 401,
+    "scenario": "Test request with malformed API key containing special characters"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 403,
+    "scenario": "Test response when API key has been disabled - error code 2008"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "expected_statusCode": 403,
+    "scenario": "Test response when API key lacks access to forecast resource - error code 2009"
+  },
+  {
+    "q": "London",
+    "days": 1,
+    "tp": 15,
+    "expected_statusCode": 403,
+    "scenario": "Test tp parameter for 15-minute interval data without Enterprise access"
+  },
+  {
+    "q": "New York",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Verify response structure contains required location fields"
+  },
+  {
+    "q": "New York",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Verify response structure contains required current weather fields"
+  },
+  {
+    "q": "New York",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Verify response structure contains required forecast fields with forecastday array"
+  },
+  {
+    "q": "London",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Verify forecastday contains hourly weather data with 24 entries"
+  },
+  {
+    "q": "London",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Verify forecastday contains astronomy data (sunrise, sunset, moon phases)"
+  },
+  {
+    "q": "Rome",
+    "days": 5,
+    "lang": "it",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with Italian language"
+  },
+  {
+    "q": "Moscow",
+    "days": 4,
+    "lang": "ru",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with Russian language"
+  },
+  {
+    "q": "Shanghai",
+    "days": 3,
+    "lang": "zh",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with Chinese language"
+  },
+  {
+    "q": "Dubai",
+    "days": 7,
+    "aqi": "yes",
+    "alerts": "yes",
+    "expected_statusCode": 200,
+    "scenario": "Test forecast with both AQI and alerts enabled"
+  },
+  {
+    "q": "Singapore",
+    "days": 10,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast request with 10 days"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast with Paris coordinates"
+  },
+  {
+    "q": "192.168.1.1",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with private/local IP address"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "dt": "2024-01-15",
+    "unixdt": 1705363200,
+    "expected_statusCode": 400,
+    "scenario": "Test request with both dt and unixdt parameters provided"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "alerts": "maybe",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid alerts parameter value"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "aqi": "true",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid aqi parameter value"
+  },
+  {
+    "q": "London",
+    "days": 3,
+    "lang": "xyz",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent language code"
+  },
+  {
+    "q": "London",
+    "days": 1,
+    "tp": 30,
+    "expected_statusCode": 400,
+    "scenario": "Test tp parameter with invalid value"
+  },
+  {
+    "q": "Cape Town",
+    "days": 6,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast for Southern Hemisphere location"
+  },
+  {
+    "q": "Reykjavik",
+    "days": 4,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast for high latitude location"
+  },
+  {
+    "q": "Auckland",
+    "days": 8,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast for Pacific timezone location"
+  },
+  {
+    "q": "Los Angeles",
+    "days": 5,
+    "hour": 6,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast with early morning hour filter"
+  },
+  {
+    "q": "Chicago",
+    "days": 3,
+    "hour": 12,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast with noon hour filter"
+  }
+]

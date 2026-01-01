@@ -1,0 +1,254 @@
+[
+  {
+    "q": "London",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with city name and a date 30 days in the future"
+  },
+  {
+    "q": "10001",
+    "dt": "2025-03-17",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request using US Zipcode as location parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "dt": "2025-02-28",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request using latitude and longitude coordinates"
+  },
+  {
+    "q": "8.8.8.8",
+    "dt": "2025-02-05",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request using IP address as location"
+  },
+  {
+    "q": "SW1A 1AA",
+    "dt": "2025-04-25",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request using UK Postcode"
+  },
+  {
+    "q": "Paris",
+    "dt": "2025-02-15",
+    "lang": "fr",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with language parameter for localized response"
+  },
+  {
+    "q": "Tokyo",
+    "dt": "2025-01-30",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with date exactly 14 days in the future (minimum allowed)"
+  },
+  {
+    "q": "Sydney",
+    "dt": "2025-11-12",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with date 300 days in the future (near maximum)"
+  },
+  {
+    "q": "New York",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify all location fields are present in response"
+  },
+  {
+    "q": "Los Angeles",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify all day forecast fields are present"
+  },
+  {
+    "q": "Chicago",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify response contains 3-hourly interval forecast data"
+  },
+  {
+    "q": "Seattle",
+    "dt": "2025-02-28",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Verify response contains astronomical data"
+  },
+  {
+    "q": "M5V 3L9",
+    "dt": "2025-03-05",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with Canadian postal code"
+  },
+  {
+    "q": "Москва",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with Unicode city name"
+  },
+  {
+    "q": "Lisbon",
+    "dt": "2025-02-15",
+    "lang": "es",
+    "expected_statusCode": 200,
+    "scenario": "Test request with multiple valid language codes"
+  },
+  {
+    "q": "Barcelona",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with empty lang parameter"
+  },
+  {
+    "q": "",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request without the required q parameter - empty string"
+  },
+  {
+    "q": "InvalidCityXYZ123",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent location name"
+  },
+  {
+    "q": "Berlin",
+    "dt": "2025-01-20",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with date less than 14 days in the future"
+  },
+  {
+    "q": "Madrid",
+    "dt": "2020-01-01",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with a past date"
+  },
+  {
+    "q": "Rome",
+    "dt": "2026-03-01",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with date more than 365 days in the future"
+  },
+  {
+    "q": "Amsterdam",
+    "dt": "22-07-2025",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with incorrectly formatted date"
+  },
+  {
+    "q": "Vienna",
+    "dt": "not-a-date",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-date string for dt parameter"
+  },
+  {
+    "q": "Oslo",
+    "dt": "2025-13-01",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid month in date"
+  },
+  {
+    "q": "Stockholm",
+    "dt": "2025-02-30",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid day in date (e.g., Feb 30)"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters in location query"
+  },
+  {
+    "q": "London; DROP TABLE users;--",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in q parameter"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long location string"
+  },
+  {
+    "q": "null",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with null value for q parameter"
+  },
+  {
+    "q": "   ",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only q parameter"
+  },
+  {
+    "q": "99999999",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with numeric value that is not a valid zipcode"
+  },
+  {
+    "q": "999.99,-999.99",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed latitude/longitude"
+  },
+  {
+    "q": "Munich",
+    "dt": "2025-02-15",
+    "lang": "xyz",
+    "expected_statusCode": 200,
+    "scenario": "Test request with invalid language code - may return default language"
+  },
+  {
+    "q": "Dubai",
+    "dt": "",
+    "lang": "",
+    "expected_statusCode": 400,
+    "scenario": "Test valid request without the optional dt parameter"
+  },
+  {
+    "q": "Boston",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 403,
+    "scenario": "Test request with a disabled API key"
+  },
+  {
+    "q": "Miami",
+    "dt": "2025-02-15",
+    "lang": "",
+    "expected_statusCode": 403,
+    "scenario": "Test request with API key lacking access to future endpoint"
+  }
+]

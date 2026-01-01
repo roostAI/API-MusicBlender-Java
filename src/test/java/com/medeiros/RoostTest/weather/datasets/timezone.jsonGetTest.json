@@ -1,0 +1,152 @@
+[
+  {
+    "q": "10001",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with US Zipcode as query parameter"
+  },
+  {
+    "q": "SW1A 1AA",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with UK Postcode as query parameter"
+  },
+  {
+    "q": "New York",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with city name as query parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with latitude/longitude coordinates"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with IP address as query parameter"
+  },
+  {
+    "q": "M5V 3L9",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Canada Postal Code as query parameter"
+  },
+  {
+    "q": "London",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with popular city name"
+  },
+  {
+    "q": "90210",
+    "expected_statusCode": 200,
+    "scenario": "Test request with numeric-only zipcode (Beverly Hills)"
+  },
+  {
+    "q": "-33.87,151.21",
+    "expected_statusCode": 200,
+    "scenario": "Test request with negative latitude and longitude values (Sydney)"
+  },
+  {
+    "q": "Tokyo",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request to verify localtime format in response"
+  },
+  {
+    "q": "Berlin",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request to verify localtime_epoch is valid Unix timestamp"
+  },
+  {
+    "q": "Paris",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request to verify response field types"
+  },
+  {
+    "q": "new york",
+    "expected_statusCode": 200,
+    "scenario": "Test request with lowercase city name for case sensitivity"
+  },
+  {
+    "q": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty 'q' query parameter - error code 1003"
+  },
+  {
+    "q": "xyznonexistentcity123",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent location - error code 1006"
+  },
+  {
+    "q": "abc,xyz",
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed latitude/longitude format"
+  },
+  {
+    "q": "999.99,-74.01",
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude out of valid range"
+  },
+  {
+    "q": "40.71,-999.99",
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude out of valid range"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters/XSS attempt - error code 1006"
+  },
+  {
+    "q": "1 OR 1=1",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt - error code 1006"
+  },
+  {
+    "q": "999.999.999.999",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid IP address format"
+  },
+  {
+    "q": "   ",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only query parameter"
+  },
+  {
+    "q": "null",
+    "expected_statusCode": 400,
+    "scenario": "Test request with literal null string as query parameter"
+  },
+  {
+    "q": "192.168.1.1",
+    "expected_statusCode": 400,
+    "scenario": "Test request with private/internal IP address"
+  },
+  {
+    "q": "!@#$%^&*()",
+    "expected_statusCode": 400,
+    "scenario": "Test request with only special characters"
+  },
+  {
+    "q": "12345678901234567890123456789012345678901234567890",
+    "expected_statusCode": 400,
+    "scenario": "Test request with very long numeric string"
+  },
+  {
+    "q": ";;;DROP TABLE locations;--",
+    "expected_statusCode": 400,
+    "scenario": "Test request with another SQL injection pattern"
+  },
+  {
+    "q": "0,0",
+    "expected_statusCode": 200,
+    "scenario": "Test request with zero coordinates (null island)"
+  },
+  {
+    "q": "90,180",
+    "expected_statusCode": 200,
+    "scenario": "Test request with maximum valid latitude and longitude"
+  },
+  {
+    "q": "-90,-180",
+    "expected_statusCode": 200,
+    "scenario": "Test request with minimum valid latitude and longitude"
+  }
+]

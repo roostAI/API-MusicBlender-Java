@@ -1,0 +1,312 @@
+[
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with required parameters q and days for ocean coordinates"
+  },
+  {
+    "q": "40.7128,-74.0060",
+    "days": 5,
+    "dt": "2024-01-15",
+    "hour": 14,
+    "lang": "es",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with all optional parameters included"
+  },
+  {
+    "q": "35.6762,139.6503",
+    "days": 2,
+    "unixdt": 1705363200,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request using unixdt instead of dt parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test request with days=1 (minimum enum value) returns exactly 1 forecast day"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 7,
+    "expected_statusCode": 200,
+    "scenario": "Test request with days=7 (maximum enum value) returns up to 7 forecast days"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 14,
+    "expected_statusCode": 200,
+    "scenario": "Test request with valid hour parameter filters hourly data correctly"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 0,
+    "expected_statusCode": 200,
+    "scenario": "Test request with hour parameter at minimum boundary (midnight)"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 23,
+    "expected_statusCode": 200,
+    "scenario": "Test request with hour parameter at maximum boundary (11 PM)"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "lang": "fr",
+    "expected_statusCode": 200,
+    "scenario": "Test request with valid language code returns localized condition text"
+  },
+  {
+    "q": "48.856614,2.3522219",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test request with high precision decimal coordinates"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test that response contains complete location object with all required fields"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test that response contains complete forecast object with forecastday array"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test that response contains marine-specific hourly data like sig_ht_mt and swell data"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test that response contains astronomy data with sunrise, sunset, moonrise, moonset"
+  },
+  {
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request without required q parameter returns error code 1003"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required days parameter returns error"
+  },
+  {
+    "expected_statusCode": 400,
+    "scenario": "Test request without any required parameters returns error code 1003"
+  },
+  {
+    "q": "39.9042,116.4074",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with coordinates not on sea/ocean (Beijing - inland) returns error code 1006"
+  },
+  {
+    "q": "invalid_location_string",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed q parameter returns error code 1006"
+  },
+  {
+    "q": "",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty q parameter returns error code 1003 or 1006"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 0,
+    "expected_statusCode": 400,
+    "scenario": "Test request with days parameter below minimum value (0) returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 8,
+    "expected_statusCode": 400,
+    "scenario": "Test request with days parameter above maximum value (8) returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative days parameter returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "dt": "22-07-2024",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid dt date format returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "dt": "2020-01-01",
+    "expected_statusCode": 400,
+    "scenario": "Test request with dt date in the past returns error about date range"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "dt": "2025-12-31",
+    "expected_statusCode": 400,
+    "scenario": "Test request with dt date more than 7 days in future returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "unixdt": 1577836800,
+    "expected_statusCode": 400,
+    "scenario": "Test request with unix timestamp in the past (2020-01-01) returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 24,
+    "expected_statusCode": 400,
+    "scenario": "Test request with hour parameter above 23 returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative hour parameter returns error"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters (XSS attempt) in q parameter returns error code 1006"
+  },
+  {
+    "q": "1 OR 1=1",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in q parameter returns error code 1006"
+  },
+  {
+    "q": "91.0,0.0",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude outside valid range (91) returns error code 1006"
+  },
+  {
+    "q": "0.0,181.0",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude outside valid range (181) returns error code 1006"
+  },
+  {
+    "q": "null",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with null string as q parameter returns error"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "lang": "",
+    "expected_statusCode": 200,
+    "scenario": "Test request with empty language parameter defaults to English"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 4,
+    "expected_statusCode": 200,
+    "scenario": "Test request with days=4 (middle enum value) returns correct forecast days"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 6,
+    "expected_statusCode": 200,
+    "scenario": "Test request with days=6 returns correct number of forecast days"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "lang": "de",
+    "expected_statusCode": 200,
+    "scenario": "Test request with German language code returns localized response"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "lang": "zh",
+    "expected_statusCode": 200,
+    "scenario": "Test request with Chinese language code returns localized response"
+  },
+  {
+    "q": "-33.8688,151.2093",
+    "days": 2,
+    "expected_statusCode": 200,
+    "scenario": "Test request with southern hemisphere ocean coordinates"
+  },
+  {
+    "q": "25.7617,-80.1918",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test request with Miami coastal coordinates"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 12,
+    "expected_statusCode": 200,
+    "scenario": "Test request with noon hour parameter"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 6,
+    "expected_statusCode": 200,
+    "scenario": "Test request with early morning hour parameter (6 AM)"
+  },
+  {
+    "q": "48.8566,2.3522",
+    "days": 1,
+    "hour": 17,
+    "expected_statusCode": 200,
+    "scenario": "Test request with evening hour parameter (5 PM)"
+  },
+  {
+    "q": "abc123",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with alphanumeric invalid q parameter returns error code 1006"
+  },
+  {
+    "q": "48.8566",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with incomplete coordinates (missing longitude) returns error"
+  },
+  {
+    "q": ",2.3522",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with incomplete coordinates (missing latitude) returns error"
+  },
+  {
+    "q": "48.8566,2.3522,0",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with extra coordinate value returns error"
+  },
+  {
+    "q": "48.8566 2.3522",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with space-separated coordinates instead of comma returns error"
+  }
+]

@@ -1,0 +1,177 @@
+[
+  {
+    "q": "185.249.71.82",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid IPv4 address lookup returns successful response with all expected fields"
+  },
+  {
+    "q": "8.8.8.8",
+    "expected_statusCode": 200,
+    "scenario": "Test Google DNS IPv4 address lookup returns successful response"
+  },
+  {
+    "q": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid IPv6 address lookup returns successful response with type 'ipv6'"
+  },
+  {
+    "q": "2001:db8::1",
+    "expected_statusCode": 200,
+    "scenario": "Test IPv6 address in compressed format returns successful response"
+  },
+  {
+    "q": "192.168.1.1",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of private IP address range returns appropriate response"
+  },
+  {
+    "q": "127.0.0.1",
+    "expected_statusCode": 200,
+    "scenario": "Test lookup of localhost IP address returns appropriate response"
+  },
+  {
+    "q": "1.1.1.1",
+    "expected_statusCode": 200,
+    "scenario": "Test Cloudflare DNS IPv4 address lookup returns successful response"
+  },
+  {
+    "q": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty 'q' parameter returns 400 error with code 1003"
+  },
+  {
+    "q": "999.999.999.999",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid IP format returns 400 error with code 1006"
+  },
+  {
+    "q": "not_an_ip_address",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-IP string value returns 400 error with code 1006"
+  },
+  {
+    "q": "12345",
+    "expected_statusCode": 400,
+    "scenario": "Test request with plain numeric value returns 400 error with code 1006"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "expected_statusCode": 400,
+    "scenario": "Test request with XSS-like special characters returns 400 error"
+  },
+  {
+    "q": "1 OR 1=1; DROP TABLE users;--",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt returns 400 error with code 1006"
+  },
+  {
+    "q": "null",
+    "expected_statusCode": 400,
+    "scenario": "Test request with null string value returns 400 error with code 1006"
+  },
+  {
+    "q": "   ",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace only in query param returns 400 error"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long string returns 400 error"
+  },
+  {
+    "q": "185.249.71.82:8080",
+    "expected_statusCode": 400,
+    "scenario": "Test IP address with port number appended returns 400 error"
+  },
+  {
+    "q": "185.249.71.0/24",
+    "expected_statusCode": 400,
+    "scenario": "Test IP address with CIDR notation returns 400 error with code 1006"
+  },
+  {
+    "q": "测试",
+    "expected_statusCode": 400,
+    "scenario": "Test request with unicode characters in query param returns 400 error"
+  },
+  {
+    "q": "255.255.255.255",
+    "expected_statusCode": 400,
+    "scenario": "Test lookup of broadcast IP address returns appropriate error response"
+  },
+  {
+    "q": "0.0.0.0",
+    "expected_statusCode": 400,
+    "scenario": "Test lookup of zero IP address returns appropriate error response"
+  },
+  {
+    "q": "192.168.001.001",
+    "expected_statusCode": 200,
+    "scenario": "Test IP address with leading zeros in octets is handled appropriately"
+  },
+  {
+    "q": "185.249.71.82   ",
+    "expected_statusCode": 200,
+    "scenario": "Test IP address with trailing spaces is trimmed and processed"
+  },
+  {
+    "q": "   185.249.71.82",
+    "expected_statusCode": 200,
+    "scenario": "Test IP address with leading spaces is trimmed and processed"
+  },
+  {
+    "q": "74.125.224.72",
+    "expected_statusCode": 200,
+    "scenario": "Test Google server IP address lookup returns successful response with location data"
+  },
+  {
+    "q": "208.67.222.222",
+    "expected_statusCode": 200,
+    "scenario": "Test OpenDNS IP address lookup returns successful response"
+  },
+  {
+    "q": "abc.def.ghi.jkl",
+    "expected_statusCode": 400,
+    "scenario": "Test request with alphabetic octets returns 400 error with code 1006"
+  },
+  {
+    "q": "192.168.1",
+    "expected_statusCode": 400,
+    "scenario": "Test incomplete IPv4 address with only 3 octets returns 400 error"
+  },
+  {
+    "q": "192.168.1.1.1",
+    "expected_statusCode": 400,
+    "scenario": "Test IPv4 address with 5 octets returns 400 error"
+  },
+  {
+    "q": "-1.0.0.1",
+    "expected_statusCode": 400,
+    "scenario": "Test IP address with negative octet value returns 400 error"
+  },
+  {
+    "q": "256.1.1.1",
+    "expected_statusCode": 400,
+    "scenario": "Test IP address with octet value exceeding 255 returns 400 error"
+  },
+  {
+    "q": "::1",
+    "expected_statusCode": 200,
+    "scenario": "Test IPv6 loopback address in compressed format returns appropriate response"
+  },
+  {
+    "q": "fe80::1",
+    "expected_statusCode": 200,
+    "scenario": "Test IPv6 link-local address returns appropriate response"
+  },
+  {
+    "q": "172.16.0.1",
+    "expected_statusCode": 200,
+    "scenario": "Test private IP address from 172.16.x.x range returns appropriate response"
+  },
+  {
+    "q": "10.0.0.1",
+    "expected_statusCode": 200,
+    "scenario": "Test private IP address from 10.x.x.x range returns appropriate response"
+  }
+]

@@ -1,0 +1,240 @@
+[
+  {
+    "q": "New York",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with city name and valid date"
+  },
+  {
+    "q": "10001",
+    "dt": "2024-06-21",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with US Zipcode"
+  },
+  {
+    "q": "SW1A 1AA",
+    "dt": "2024-03-20",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with UK Postcode"
+  },
+  {
+    "q": "40.71,-74.01",
+    "dt": "2024-07-04",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Latitude/Longitude coordinates"
+  },
+  {
+    "q": "8.8.8.8",
+    "dt": "2024-12-25",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with IP address"
+  },
+  {
+    "q": "M5V 3L9",
+    "dt": "2024-02-14",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Canada Postal Code"
+  },
+  {
+    "q": "Paris",
+    "dt": "2015-01-01",
+    "expected_statusCode": 200,
+    "scenario": "Test request with minimum allowed date 2015-01-01"
+  },
+  {
+    "q": "Tokyo",
+    "dt": "2025-12-31",
+    "expected_statusCode": 200,
+    "scenario": "Test request with future date"
+  },
+  {
+    "q": "Sydney",
+    "dt": "2024-02-29",
+    "expected_statusCode": 200,
+    "scenario": "Test request with leap year date February 29"
+  },
+  {
+    "q": "90210",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with numeric only q parameter interpreted as zipcode"
+  },
+  {
+    "q": "LONDON",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test that city name search is case insensitive"
+  },
+  {
+    "q": "München",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with unicode characters in city name"
+  },
+  {
+    "q": "London",
+    "dt": "2024-06-21",
+    "expected_statusCode": 200,
+    "scenario": "Verify response contains all expected astronomy fields including sunrise, sunset, moonrise, moonset"
+  },
+  {
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required q parameter - error code 1003"
+  },
+  {
+    "q": "London",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required dt parameter"
+  },
+  {
+    "q": "",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty q parameter value - error code 1003 or 1006"
+  },
+  {
+    "q": "InvalidCityXYZ123",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent location - error code 1006"
+  },
+  {
+    "q": "London",
+    "dt": "15-01-2024",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid date format (wrong format)"
+  },
+  {
+    "q": "London",
+    "dt": "2014-12-31",
+    "expected_statusCode": 400,
+    "scenario": "Test request with date before minimum allowed (before 1st Jan 2015)"
+  },
+  {
+    "q": "London",
+    "dt": "not-a-date",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-date string in dt parameter"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters in q parameter (XSS attempt) - error code 1006"
+  },
+  {
+    "q": "London; DROP TABLE users;--",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in q parameter - error code 1006"
+  },
+  {
+    "q": "null",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with null value string for q parameter - error code 1006"
+  },
+  {
+    "q": "London",
+    "dt": "null",
+    "expected_statusCode": 400,
+    "scenario": "Test request with null value string for dt parameter"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long q parameter value - error code 1006"
+  },
+  {
+    "q": "999.99,999.99",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid latitude/longitude format (out of range) - error code 1006"
+  },
+  {
+    "q": "London",
+    "dt": "2024-13-01",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid month in date"
+  },
+  {
+    "q": "London",
+    "dt": "2024-02-30",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid day in date"
+  },
+  {
+    "q": "Sydney",
+    "dt": "2023-02-29",
+    "expected_statusCode": 400,
+    "scenario": "Test request with February 29 on non-leap year"
+  },
+  {
+    "q": "   ",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace only in q parameter - error code 1003 or 1006"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 401,
+    "scenario": "Test request without API key authentication - error code 1002"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 401,
+    "scenario": "Test request with invalid API key - error code 2006"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 401,
+    "scenario": "Test request with empty API key value - error code 1002 or 2006"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 401,
+    "scenario": "Test request with malformed API key containing special characters @#$% - error code 2006"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 403,
+    "scenario": "Test request with disabled API key - error code 2008"
+  },
+  {
+    "q": "Berlin",
+    "dt": "2024-05-15",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with European city name"
+  },
+  {
+    "q": "51.5074,-0.1278",
+    "dt": "2024-08-10",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with London coordinates"
+  },
+  {
+    "q": "E1 6AN",
+    "dt": "2024-09-22",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with another UK Postcode format"
+  },
+  {
+    "q": "Los Angeles",
+    "dt": "2024-11-30",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with multi-word city name"
+  },
+  {
+    "q": "1.1.1.1",
+    "dt": "2024-04-01",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with Cloudflare DNS IP address"
+  }
+]
