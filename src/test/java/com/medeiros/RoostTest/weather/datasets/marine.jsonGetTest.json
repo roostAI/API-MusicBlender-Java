@@ -1,0 +1,312 @@
+[
+  {
+    "q": "48.8566,2.3522",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with required parameters q and days for ocean coordinates"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 5,
+    "dt": "2024-01-15",
+    "hour": 14,
+    "lang": "es",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with all optional parameters included"
+  },
+  {
+    "q": "35.6762,139.6503",
+    "days": 2,
+    "unixdt": 1705363200,
+    "expected_statusCode": 200,
+    "scenario": "Test valid request using unixdt instead of dt parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "hour": 17,
+    "expected_statusCode": 200,
+    "scenario": "Test request with valid hour parameter to filter hourly data"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "hour": 0,
+    "expected_statusCode": 200,
+    "scenario": "Test request with hour parameter at minimum boundary (midnight)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "hour": 23,
+    "expected_statusCode": 200,
+    "scenario": "Test request with hour parameter at maximum boundary (11 PM)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test request with days=1 (minimum enum value)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 7,
+    "expected_statusCode": 200,
+    "scenario": "Test request with days=7 (maximum enum value)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "lang": "fr",
+    "expected_statusCode": 200,
+    "scenario": "Test request with valid language code for French localization"
+  },
+  {
+    "q": "51.5074,-0.1278",
+    "days": 4,
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with London coordinates"
+  },
+  {
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request without required q parameter - error code 1003"
+  },
+  {
+    "q": "40.71,-74.01",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required days parameter"
+  },
+  {
+    "expected_statusCode": 400,
+    "scenario": "Test request without any required parameters - error code 1003"
+  },
+  {
+    "q": "invalidlocation123",
+    "days": 1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with location that does not exist - error code 1006"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 0,
+    "expected_statusCode": 400,
+    "scenario": "Test request with days parameter below minimum value"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 8,
+    "expected_statusCode": 400,
+    "scenario": "Test request with days parameter above maximum value"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative days parameter"
+  },
+  {
+    "q": "",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty q parameter - error code 1003 or 1006"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "dt": "22-07-2023",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid date format for dt parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "dt": "2020-01-01",
+    "expected_statusCode": 400,
+    "scenario": "Test request with dt parameter set to a past date"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "unixdt": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid negative unix timestamp"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "hour": 24,
+    "expected_statusCode": 400,
+    "scenario": "Test request with hour parameter above maximum (24)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "hour": -1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with negative hour parameter"
+  },
+  {
+    "q": "100.0,0.0",
+    "days": 1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude outside valid range - error code 1006"
+  },
+  {
+    "q": "0.0,200.0",
+    "days": 1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude outside valid range - error code 1006"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "days": 1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters in q parameter - XSS prevention"
+  },
+  {
+    "q": "1 OR 1=1",
+    "days": 1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in q parameter"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "unixdt": 1577836800,
+    "expected_statusCode": 400,
+    "scenario": "Test request with unixdt set to past timestamp (Jan 1 2020)"
+  },
+  {
+    "q": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
+    "days": 1,
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long q parameter - error code 1005 or 1006"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 2,
+    "expected_statusCode": 401,
+    "scenario": "Test request without API key authentication - error code 1002"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "expected_statusCode": 401,
+    "scenario": "Test request with invalid API key - error code 2006"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 401,
+    "scenario": "Test request with empty API key - error code 1002"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "expected_statusCode": 403,
+    "scenario": "Test request with disabled API key - error code 2008"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 2,
+    "expected_statusCode": 403,
+    "scenario": "Test request when API key does not have access to marine endpoint - error code 2009"
+  },
+  {
+    "q": "25.7617,-80.1918",
+    "days": 5,
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with Miami ocean coordinates"
+  },
+  {
+    "q": "-33.8688,151.2093",
+    "days": 3,
+    "lang": "de",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with Sydney coordinates and German language"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 4,
+    "expected_statusCode": 200,
+    "scenario": "Test response contains location object with required fields"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "expected_statusCode": 200,
+    "scenario": "Test response contains forecast object with forecastday array of 3 items"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test forecast day contains marine-specific data (sig_ht_mt, swell_ht_mt)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test response contains astronomy data (sunrise, sunset, moon_phase)"
+  },
+  {
+    "q": "55.7558,37.6173",
+    "days": 6,
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with Moscow coordinates and 6 days forecast"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 2,
+    "lang": "xyz",
+    "expected_statusCode": 200,
+    "scenario": "Test request with invalid language code - should return default English"
+  },
+  {
+    "q": "90.0,0.0",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test request with extreme latitude values (North Pole)"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 3,
+    "dt": "2024-01-20",
+    "unixdt": 1705708800,
+    "expected_statusCode": 400,
+    "scenario": "Test request with both dt and unixdt parameters provided"
+  },
+  {
+    "q": "null",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with null string as q parameter - error code 1006"
+  },
+  {
+    "q": "34.0522,-118.2437",
+    "days": 2,
+    "hour": 12,
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with Los Angeles coordinates and noon hour"
+  },
+  {
+    "q": "1.3521,103.8198",
+    "days": 7,
+    "lang": "zh",
+    "expected_statusCode": 200,
+    "scenario": "Test valid request with Singapore coordinates and Chinese language"
+  },
+  {
+    "q": "40.71,-74.01",
+    "days": 1,
+    "expected_statusCode": 200,
+    "scenario": "Test response data types match schema specification"
+  },
+  {
+    "q": "   ",
+    "days": 3,
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only q parameter"
+  }
+]

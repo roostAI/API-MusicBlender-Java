@@ -1,0 +1,292 @@
+[
+  {
+    "q": "New York",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with city name and valid date"
+  },
+  {
+    "q": "10001",
+    "dt": "2024-06-21",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with US Zipcode"
+  },
+  {
+    "q": "SW1A 1AA",
+    "dt": "2024-03-20",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with UK Postcode"
+  },
+  {
+    "q": "40.71,-74.01",
+    "dt": "2024-07-04",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with Latitude/Longitude coordinates"
+  },
+  {
+    "q": "8.8.8.8",
+    "dt": "2024-12-25",
+    "expected_statusCode": 200,
+    "scenario": "Test a valid request with IP address"
+  },
+  {
+    "q": "90210",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with numeric zipcode as q parameter"
+  },
+  {
+    "q": "M5V 3L9",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with Canada Postal Code"
+  },
+  {
+    "q": "Paris",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Verify lat and lon fields are numeric types"
+  },
+  {
+    "q": "Tokyo",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Verify localtime_epoch field is integer type"
+  },
+  {
+    "q": "Sydney",
+    "dt": "2025-12-31",
+    "expected_statusCode": 200,
+    "scenario": "Test request with future date"
+  },
+  {
+    "q": "Berlin",
+    "dt": "2015-01-01",
+    "expected_statusCode": 200,
+    "scenario": "Test request with minimum valid date 2015-01-01"
+  },
+  {
+    "q": "-33.87,151.21",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with negative latitude coordinate (Sydney)"
+  },
+  {
+    "q": "51.51,-0.13",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with negative longitude coordinate (London)"
+  },
+  {
+    "q": "89.99,0",
+    "dt": "2024-06-21",
+    "expected_statusCode": 200,
+    "scenario": "Test request with extreme latitude value near North Pole"
+  },
+  {
+    "q": "Munich",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with Unicode city name"
+  },
+  {
+    "q": "LONDON",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test if q parameter is case insensitive"
+  },
+  {
+    "q": "London",
+    "dt": "2024-02-29",
+    "expected_statusCode": 200,
+    "scenario": "Test request with leap year date Feb 29"
+  },
+  {
+    "q": "Springfield",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with ambiguous city name"
+  },
+  {
+    "q": "Paris, France",
+    "dt": "2024-01-15",
+    "expected_statusCode": 200,
+    "scenario": "Test request with city and country specification"
+  },
+  {
+    "q": "London",
+    "dt": "2024-06-21",
+    "expected_statusCode": 200,
+    "scenario": "Verify response contains all expected astronomy fields"
+  },
+  {
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required q parameter"
+  },
+  {
+    "q": "London",
+    "expected_statusCode": 400,
+    "scenario": "Test request without required dt parameter"
+  },
+  {
+    "q": "",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty q parameter value"
+  },
+  {
+    "q": "InvalidCityXYZ123",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent location - error code 1006"
+  },
+  {
+    "q": "London",
+    "dt": "15-01-2024",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid date format"
+  },
+  {
+    "q": "London",
+    "dt": "2014-12-31",
+    "expected_statusCode": 400,
+    "scenario": "Test request with date before minimum 1st Jan 2015"
+  },
+  {
+    "q": "London",
+    "dt": "2024-02-30",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-existent date"
+  },
+  {
+    "q": "London",
+    "dt": "",
+    "expected_statusCode": 400,
+    "scenario": "Test request with empty dt parameter value"
+  },
+  {
+    "q": "<script>alert(1)</script>",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with special characters in q parameter - XSS attempt"
+  },
+  {
+    "q": "London; DROP TABLE users;--",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with SQL injection attempt in q parameter"
+  },
+  {
+    "q": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with excessively long q parameter"
+  },
+  {
+    "q": "null",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with null q parameter"
+  },
+  {
+    "q": "London",
+    "dt": "null",
+    "expected_statusCode": 400,
+    "scenario": "Test request with null dt parameter"
+  },
+  {
+    "q": "91.00,0",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with latitude out of valid range"
+  },
+  {
+    "q": "0,181",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with longitude out of valid range"
+  },
+  {
+    "q": "    ",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with whitespace-only q parameter"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15T10:30:00",
+    "expected_statusCode": 400,
+    "scenario": "Test request with datetime instead of date"
+  },
+  {
+    "q": "London",
+    "dt": "2023-02-29",
+    "expected_statusCode": 400,
+    "scenario": "Test request with Feb 29 on non-leap year"
+  },
+  {
+    "q": "192.168.1.1",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with private IP address"
+  },
+  {
+    "q": "999.999.999.999",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with malformed IP address"
+  },
+  {
+    "q": "London",
+    "dt": "2024-13-01",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid month in date"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-32",
+    "expected_statusCode": 400,
+    "scenario": "Test request with invalid day in date"
+  },
+  {
+    "q": "London",
+    "dt": "abcd-ef-gh",
+    "expected_statusCode": 400,
+    "scenario": "Test request with non-date string in dt parameter"
+  },
+  {
+    "q": "!!!@@@###",
+    "dt": "2024-01-15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with only special characters in q parameter"
+  },
+  {
+    "q": "London",
+    "dt": "2024/01/15",
+    "expected_statusCode": 400,
+    "scenario": "Test request with wrong date separator format"
+  },
+  {
+    "expected_statusCode": 401,
+    "scenario": "Test request without API key authentication - error code 1002"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 401,
+    "scenario": "Test request with invalid API key - error code 2006"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 403,
+    "scenario": "Test request with disabled API key - error code 2008"
+  },
+  {
+    "q": "London",
+    "dt": "2024-01-15",
+    "expected_statusCode": 403,
+    "scenario": "Test request with API key lacking resource access - error code 2009"
+  }
+]
