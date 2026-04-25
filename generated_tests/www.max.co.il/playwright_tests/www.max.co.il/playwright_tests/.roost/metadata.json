@@ -1,0 +1,140 @@
+{
+  "metadata_version": "1.0",
+  "created_at": "2026-04-25T07:09:29.428987",
+  "last_updated": "2026-04-25T07:14:42.030179",
+  "output_dir": "RoostGPT/explore_max_co_il/ce0428c0-abaa-4ad3-aa1d-73fffb0d2662/source/API-MusicBlender-Java/generated_tests/www.max.co.il/playwright_tests/www.max.co.il/playwright_tests",
+  "site_url": "https://www.max.co.il",
+  "pom_files": null,
+  "Login_File": {
+    "name": null,
+    "path": null,
+    "hash": null,
+    "agent_workflow_completed": false,
+    "agent_workflow_file_path": null,
+    "agent_interaction_file_path": null,
+    "agent_activity_summary": null,
+    "agent_activity_error": null,
+    "agent_activity_outcome": null,
+    "agent_recommendation": null,
+    "agent_completion_level": null,
+    "agent_steps_completed": null,
+    "execution_flow_file_path": null,
+    "systematic_selectors_file_path": null,
+    "scenario_name": null,
+    "scenario_file_path": null,
+    "test_generated": false,
+    "test_generation_error": null,
+    "test_file_path": null,
+    "test_executed_success": null,
+    "test_execution_error": null,
+    "pom_test_name": null,
+    "pom_test_file_path": null,
+    "pom_test_executed_success": null,
+    "pom_test_execution_error": null,
+    "pom_files": null
+  },
+  "Workflows": [
+    {
+      "workflow_id": "WF001",
+      "title": "Homepage Informational Content and Navigation Verification",
+      "goal": "Ensure the homepage loads correctly, all main banners and informational sections are displayed, and navigation links are present and visible.",
+      "feature_area": "Homepage Informational Area",
+      "priority": "low",
+      "starting_hint": "1. Navigate to https://www.max.co.il\n2. Verify that the main banners are displayed\n3. Check that all informational sections are visible\n4. Confirm that navigation links are present and accessible",
+      "discovery_source": "roost_discovered",
+      "source_file": null,
+      "source_file_hash": null,
+      "worker_completed": false,
+      "worker_result": "pending",
+      "linked_scenario_name": null,
+      "error": null,
+      "scenario_name": null,
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "generated_tests/www.max.co.il/playwright_tests/www.max.co.il/playwright_tests/scenarios/summaries/WF001_homepage_informational_content_and_navigation_veri.md",
+      "report_pdf_file_path": "generated_tests/www.max.co.il/playwright_tests/www.max.co.il/playwright_tests/scenarios/reports/WF001_homepage_informational_content_and_navigation_veri.pdf",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": null,
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": null,
+      "agent_activity_error": null,
+      "agent_activity_outcome": null,
+      "agent_recommendation": null,
+      "agent_completion_level": null,
+      "agent_steps_completed": null,
+      "visited_urls": null,
+      "execution_flow_file_path": null,
+      "test_generated": false,
+      "test_generation_error": null,
+      "test_name": null,
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": null,
+      "pom_test_file_path": null,
+      "pom_test_executed_success": null,
+      "pom_test_execution_error": null,
+      "pom_files": null,
+      "test_steps": null,
+      "video_recording_path": null
+    }
+  ],
+  "explore_focus_areas": [
+    null
+  ],
+  "Imported_Test_Coverage": null,
+  "Token_Usage": {
+    "cumulative": {
+      "input_tokens": 18161,
+      "output_tokens": 1067,
+      "cached_input_tokens": 0,
+      "total_tokens": 19228,
+      "total_cost_usd": 0.04025
+    },
+    "runs": [
+      {
+        "run_type": "explore_discovery",
+        "timestamp": "2026-04-25T07:14:42.029972",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 18161,
+        "output_tokens": 1067,
+        "total_tokens": 19228,
+        "cost_usd": 0.04025,
+        "sessions": {
+          "explore_execution": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "orchestrator_master": {
+            "input": 5437,
+            "output": 396,
+            "cost": 0.009434
+          },
+          "explore_synthesize_testable_areas": {
+            "input": 932,
+            "output": 186,
+            "cost": 0.003352
+          },
+          "orchestrator_site_classification": {
+            "input": 206,
+            "output": 58,
+            "cost": 0.000876
+          },
+          "explore_deepdive_TA001": {
+            "input": 8716,
+            "output": 235,
+            "cost": 0.019312
+          },
+          "report_curation_WF001": {
+            "input": 2870,
+            "output": 192,
+            "cost": 0.007276
+          }
+        }
+      }
+    ]
+  }
+}
